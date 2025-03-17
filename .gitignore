@@ -1,11 +1,3 @@
 ```
-/public/
-/themes/*/*/exampleSite/
-/resources/_gen/
-.DS_Store
-config.toml
-config.yaml
-config.json
-theme.toml
-.hugo_build.json
+/themes/
 ```
