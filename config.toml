@@ -36,6 +36,12 @@ name = 'Contact'
 pageref = '/contact'
 weight = 3
 
+[[menu.main]]
+name = 'Purchase →'
+url = "https://www.gueststatus.com"
+identifier = "stripe-link"
+weight = 4
+
 
 [sitemap]
 changefreq = "monthly"
@@ -57,27 +63,3 @@ featured_image_class = "cover bg-top"
 cover_dimming_class = "bg-black-60"
 recent_posts_number = 3
 body_classes = "avenir"
-
-[params.ananke.social.share]
-networks = [
-  "email",
-  "facebook",
-  "bluesky",
-  "linkedin"
-]
-
-[params.ananke.social.follow]
-networks = [
-  "facebook",
-  "instagram"
-]
-
-[params.ananke.social.facebook]
-username = "GuestStatus"
-# profilelink = "https://www.facebook.com/GuestStatus"
-
-[params.ananke.social.linkedin]
-username = "GuestStatus"
-
-[params.ananke.social.bluesky]
-username = "GuestStatus"
