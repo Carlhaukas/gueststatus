@@ -1,5 +1,5 @@
 ---
-title: "Host with Confidence."
+title: "Host with Confidence"
 
 description: "Real-time guest insights, while respecting their privacy. Optimize operations & guest experiences."
 theme_version: '2.8.2'
