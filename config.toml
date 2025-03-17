@@ -1,5 +1,5 @@
 title = "GuestStatus: Smart Airbnb Monitoring | No Cameras, No Hassle."
-baseURL = "https://GuestStatus.com"
+baseURL = "https://www.gueststatus.com"
 theme = ["github.com/theNewDynamic/gohugo-theme-ananke/v2"]
 resourceDir = "../resources"
 
