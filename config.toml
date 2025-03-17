@@ -46,8 +46,8 @@ filename = "sitemap.xml"
 mainSections = ["post"]
 text_color = ""
 author = "GuestStatus Team" # default author, override via `author` in a posts front matter
-favicon = ""
-site_logo = ""
+favicon = "images/Gueststatus favicon.jpg"
+site_logo = "images/Gueststatus logo 4-1.svg"
 description = "The Smart, Affordable Solution for Airbnb Hosts to Manage Properties with Confidence."
 # choose a background color from any on this page: https://tachyons.io/docs/themes/skins/ and preface it with "bg-"
 background_color_class = "bg-black"
@@ -56,7 +56,7 @@ featured_image_class = "cover bg-top"
 # choose a color dimming class for the page or site header from any on this page: https://tachyons.io/docs/themes/skins/, preface it with "bg-" and add the value such as "-X0" where X is in [1,9]
 cover_dimming_class = "bg-black-60"
 recent_posts_number = 3
-body_classes = "avenir sans-serif"
+body_classes = "montserrat sans-serif"
 
 [params.ananke.social.share]
 networks = [
