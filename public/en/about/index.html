@@ -52,7 +52,51 @@
   <meta name="twitter:title" content="About">
   <meta name="twitter:description" content="At GuestStatus, we’re on a mission to make Airbnb hosting simpler, smarter, and more efficient. Founded by hosts, for hosts.">
 
-	
+	<script src="https://getlaunchlist.com/js/widget.js" defer></script>  
+
+<body>
+
+    
+  
+    
+    <div id="waitlistModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1000; display: none; justify-content: center; align-items: center;">
+      <div style="background-color: white; padding: 20px; border-radius: 5px;">
+        <button id="close-timed-popup">Close</button>
+        <div class="launchlist-widget" data-key-id="9l7a3o" data-height="180px"></div>
+      </div>
+    </div>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const popup = document.getElementById('waitlistModal');
+        const closeButton = document.getElementById('close-timed-popup');
+
+        
+        const excludedPages = ['/signup/', '/thank-you/']; 
+
+        
+        const currentPath = window.location.pathname;
+
+        
+        if (excludedPages.includes(currentPath)) {
+          console.log('Popup disabled on this page:', currentPath);
+          return; 
+        }
+
+        
+        setTimeout(function() {
+          console.log('Showing popup after 10 seconds');
+          popup.style.display = 'flex';
+        }, 10000); 
+
+        
+        closeButton.addEventListener('click', function() {
+          popup.style.display = 'none';
+        });
+      });
+    </script>
+  
+</body>
   </head><body class="ma0 avenir development">
 
     
@@ -96,8 +140,8 @@
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://www.gueststatus.com" title="Purchase → page">
-              Purchase →
+            <a class="hover-white no-underline white-90" href="/signup/" title="Get Early Access → page">
+              Get Early Access →
             </a>
           </li>
           
@@ -173,6 +217,22 @@
 
   </article>
 
+      <article class="center cf pv5 ph3 ph4-ns mw7">
+        <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+          <p>We understand the challenges of managing properties—whether it’s coordinating cleaning schedules, preventing overstays, or ensuring seamless check-ins. Our <strong>non-intrusive, easy-to-use system</strong> was designed to give you peace of mind while respecting your guests’ privacy. With real-time insights into guest activity, you can focus on providing a great experience while we help you streamline the behind-the-scenes work.</p>
+<h3 id="why-trust-us">Why Trust Us?</h3>
+<ul>
+<li><strong>Host-First Approach:</strong> Built by experienced hosts who know the pain points of property management.</li>
+<li><strong>Privacy-Centric Design:</strong> No cameras, no smart locks—just discreet, reliable technology.</li>
+<li><strong>Proven Results:</strong> Trusted by hosts worldwide to optimize their operations and save time.</li>
+</ul>
+<p>We’re here to help you host with confidence. Join the growing community of Airbnb hosts who are transforming the way they manage their properties.</p>
+<p><strong>Let’s Simplify Hosting Together.</strong></p>
+<p><a href="https://www.anti.diet/"><strong>Buy Today &amp; Get Started →</strong></a></p>
+      
+          <div class="launchlist-widget" data-key-id="9l7a3o" data-height="180px"></div>
+        </div>
+      </article>
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">

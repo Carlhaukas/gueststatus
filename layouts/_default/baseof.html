@@ -60,6 +60,12 @@
     {{ block "header" . }}{{ partial "site-header.html" .}}{{ end }}
     <main class="pb7" role="main">
       {{ block "main" . }}{{ end }}
+      <article class="center cf pv5 ph3 ph4-ns mw7">
+        <div class="nested-copy-line-height lh-copy f4 nested-links mid-gray">
+          {{ .Content }}  <!-- This is where your signup.md content is inserted -->    
+          <div class="launchlist-widget" data-key-id="9l7a3o" data-height="180px"></div>
+        </div>
+      </article>
     </main>
     {{ block "footer" . }}{{ partialCached "site-footer.html" . }}{{ end }}
   </body>

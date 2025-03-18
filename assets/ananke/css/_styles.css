@@ -33,7 +33,7 @@
 }
 
 /* Target the specific menu item with blue */
-.list.f5.f4-ns.fw4.dib.pr3 a[href="https://www.gueststatus.com"]{
+.list.f5.f4-ns.fw4.dib.pr3 a[href="/signup/"]{
   color: #00a3ff; /* Or your desired blue color */
 }
 
@@ -52,4 +52,11 @@ a:hover {
 a:active {
   color: #33b5ff; /* A slightly lighter shade of blue */
   text-decoration: underline; /* Keep the underline */
+}
+
+
+#waitlist-button {
+  pointer-events: auto !important; /* Override any other settings */
+  z-index: 1001 !important; /* Ensure it's on top */
+  position: relative;
 }

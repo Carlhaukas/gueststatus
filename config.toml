@@ -37,8 +37,8 @@ pageref = '/contact'
 weight = 3
 
 [[menu.main]]
-name = 'Purchase →'
-url = "https://www.gueststatus.com"
+name = 'Get Early Access →'
+url = "/signup/"
 identifier = "stripe-link"
 weight = 4
 
