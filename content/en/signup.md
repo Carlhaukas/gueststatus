@@ -1,1 +1,5 @@
-<div class="launchlist-widget" data-key-id="9l7a3o" data-height="180px"></div>
+---
+title: ""
+---
+
+{{< launchlist key_id="9l7a3o" height="180px" >}}

@@ -66,3 +66,42 @@ a:active {
     display: none;
   }
 }
+
+/* static/css/custom.css */
+.centered {
+  justify-content: center;
+}
+
+.footer-menu {
+  /* You can add additional flexbox properties here if needed, like: */
+  align-items: center;       /* Align items vertically */
+}
+
+
+:root {
+  --link_button: #00a3ff;
+  --light-background-color: rgba(0, 163, 255, 0.1);
+}
+
+.footer-cta {
+  color: white; /* White text */
+  background-color: #00a3ff; /* Solid blue background */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Make it behave like a block-level element */
+  padding: 0.5em 1em;    /* Add some padding for a button-like appearance */
+  border: 1px solid #00a3ff; /* Add a border */
+  border-radius: 4px;    /* Optional: round the corners */
+  transition: background-color 0.2s, color 0.2s; /* Smooth transition for hover */
+}
+
+.footer-cta:hover {
+  background-color: #0080cc; /* A slightly darker shade of blue on hover */
+  color: white; /* Keep the text white on hover */
+  text-decoration: none; /*Remove underline on hover */
+}
+
+.footer-cta:active {
+  background-color: #33b5ff; /* A slightly lighter shade of blue on active */
+  color: white; /* Keep the text white on active */
+  /* Optional: Add a subtle shadow or other effect */
+}

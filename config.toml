@@ -42,6 +42,21 @@ url = "/signup/"
 identifier = "stripe-link"
 weight = 4
 
+[[menu.footer]]
+name = "About"
+url = "/about/"
+weight = 10
+
+[[menu.footer]]
+name = "Services"
+url = "/services/"
+weight = 20
+
+[[menu.footer]]
+name = "Contact"
+url = "/contact/"
+weight = 30
+
 
 [sitemap]
 changefreq = "monthly"
