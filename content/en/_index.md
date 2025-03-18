@@ -8,10 +8,10 @@ featured_image: '/images/gueststatuswoman.jpg'
 
 ## Effortless Intelligence
 
-Transform your hosting game with one simple plug. Connect our compact device to your router and unlock real-time, GDPR-compliant insights. Our AI analyzes connected devices-without collecting guests personal data—to help you:
+Elevate your hosting game with one simple plug. Connect our compact device to your router and unlock real-time, GDPR-compliant insights. Our AI analyzes connected devices—without collecting guests personal data—to help you:
 
-**✔ Schedule cleanings:** Sync with guest check-outs.  
-**✔ Ensure smooth arrivals:** Follow up if guests don’t connect.  
-**✔ Prevent overstays:** Spot unexpected activity fast.  
+**✔ Schedule cleanings:** Sync with guest departure.  
+**✔ Smooth arrivals:** Follow up if guests never arrive.  
+**✔ Prevent overstays:** Detect unexpected activity fast.  
 
 [**Get Early Access →**]({{< ref "signup.md" >}})
