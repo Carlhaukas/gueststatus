@@ -11,7 +11,7 @@ featured_image: '/images/gueststatuswoman.jpg'
 Elevate your hosting game with one simple plug. Connect our compact device to your router and unlock real-time, GDPR-compliant insights. Our AI analyzes connected devices—without collecting guests personal data—to help you:
 
 **✔ Schedule cleanings:** Sync with guest departure.  
-**✔ Smooth arrivals:** Follow up if guests never arrive.  
+**✔ Manage arrivals:** Follow up if guests never arrive.  
 **✔ Prevent overstays:** Detect unexpected activity fast.  
 
 [**Get Early Access →**]({{< ref "signup.md" >}})
