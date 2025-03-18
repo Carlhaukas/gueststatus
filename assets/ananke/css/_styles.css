@@ -61,3 +61,8 @@ a:active {
   position: relative;
 }
 
+@media screen and (max-width: 30em) { /* 30em is Tachyons' small screen breakpoint */
+  .pl0.mr3 { /* Target the entire menu container */
+    display: none;
+  }
+}
