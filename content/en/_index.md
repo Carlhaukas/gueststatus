@@ -7,13 +7,12 @@ featured_image: '/images/gueststatuswoman3.jpg'
 ---
 
 ### Know Your Place, Respectfully.
-
-Our **tiny, discreet device** plugs into your router—that's it. No setup, no cameras, no mics, no guest concerns. Stay in control with **real-time, GDPR-compliant insights** to:
+Introducing **Shield**, the **tiny, discreet device** that plugs into your router—that's it. No setup, no cameras, no mics, no guest concerns. With Shield, you can stay in control with **real-time, GDPR-compliant insights** to:
 
 **✔ Prevent overstays:** Detect stays longer than booked.  
 **✔ Schedule cleanings:** Know exactly when guests leave.  
 **✔ Monitor arrivals:** Follow up if guests never arrive.  
 
-Take control, effortlessly.
+Take control, effortlessly, with **Shield**.
 
 [**Get Early Access →**]({{< ref "signup.md" >}})

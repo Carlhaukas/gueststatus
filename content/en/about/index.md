@@ -1,21 +1,29 @@
 ---
 title: "About"
-description: "At GuestStatus, we’re on a mission to make Airbnb hosting simpler, smarter, and more efficient. Founded by hosts, for hosts."
-featured_image: '/images/Victor_Hugo-Hunchback.jpg'
+description: "We’re on a mission to make hosting simpler, smarter, and more secure. Created by hosts, for hosts like you."
+featured_image: '/images/gueststatusman4.jpg'
 menu:
   main:
     weight: 1
 ---
 
-We understand the challenges of managing properties—whether it’s coordinating cleaning schedules, preventing overstays, or ensuring seamless check-ins. Our **non-intrusive, easy-to-use system** was designed to give you peace of mind while respecting your guests’ privacy. With real-time insights into guest activity, you can focus on providing a great experience while we help you streamline the behind-the-scenes work.
+Remember that excitement when your listing was finally ready to welcome guests? That feeling can quickly turn into stress when you’re managing overstays, last-minute cleanings, or constantly checking your phone for updates.
 
-### Why Trust Us?  
-- **Host-First Approach:** Built by experienced hosts who know the pain points of property management.  
-- **Privacy-Centric Design:** No cameras, no smart locks—just discreet, reliable technology.  
-- **Proven Results:** Trusted by hosts worldwide to optimize their operations and save time.
+We get it. We’re hosts too, and we know how overwhelming it can be to manage a short-term rental. That’s why we built **Shield**: a tiny, privacy-first device that gives you peace of mind and takes the hassle out of hosting—without intruding on your guests’ experience.
 
-We’re here to help you host with confidence. Join the growing community of Airbnb hosts who are transforming the way they manage their properties.  
+### Why Shield Exists
+Hosting is rewarding, but let’s be honest—it’s also a lot. Between check-ins, cleanings, and keeping everything on track, it’s easy to feel overwhelmed. **Shield** is here to help. It’s designed to simplify your hosting experience by:  
+* **Simplifying Management:** Track check-outs and prevent overstays effortlessly.  
+* **Increasing Efficiency:** Automate monitoring so you can focus on what matters.  
+* **Enhancing Awareness:** Get real-time updates on arrivals, cleanings, and more.  
 
-**Let’s Simplify Hosting Together.**
+### What Makes Shield Different  
+**Shield** isn’t just another gadget—it’s a smarter way to host. Here’s why hosts love it:
+* **Guest Privacy First:** No cameras, no mics—just GDPR-compliant insights that respect your guests.  
+* **Plug-and-Play Simplicity:** Plug it into your router, and it works instantly. No setup, no hassle.  
+* **Smart, Not Overwhelming:** Get the insights you need, without unnecessary alerts.  
 
-[**Buy Today & Get Started →**](https://www.anti.diet/)
+### Ready to Host with Peace of Mind?
+Be among the first to experience **Shield**—the smarter way to host. Join the waitlist today and take the first step toward saving time, protecting your property, and delivering exceptional guest experiences.
+
+[**Get Early Access →**](/signup)
