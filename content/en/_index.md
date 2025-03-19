@@ -1,17 +1,19 @@
 ---
-title: "Host with Confidence"
+title: "Host with Peace of Mind"
 
-description: "Real-time guest insights that respect privacy. Optimize operations, protect your property, and deliver seamless guest experiences."
+description: "A tiny device for big peace of mind. Get real-time, privacy-safe insights to protect your property and optimize operations."
 theme_version: '2.8.2'
-featured_image: '/images/gueststatuswoman.jpg'
+featured_image: '/images/gueststatuswoman3.jpg'
 ---
 
-## Effortless Intelligence
+### Know Your Place, Respectfully.
 
-Elevate your hosting game with one simple plug. Connect our compact device to your router and unlock real-time, GDPR-compliant insights. Our AI analyzes connected devices—without collecting guests personal data—to help you:
+Our **tiny, discreet device** plugs into your router—that's it. No setup, no cameras, no mics, no guest concerns. Stay in control with **real-time, GDPR-compliant insights** to:
 
-**✔ Schedule cleanings:** Sync with guest departure.  
-**✔ Manage arrivals:** Follow up if guests never arrive.  
-**✔ Prevent overstays:** Detect unexpected activity fast.  
+**✔ Prevent overstays:** Detect stays longer than booked.  
+**✔ Schedule cleanings:** Know exactly when guests leave.  
+**✔ Monitor arrivals:** Follow up if guests never arrive.  
+
+Take control, effortlessly.
 
 [**Get Early Access →**]({{< ref "signup.md" >}})
