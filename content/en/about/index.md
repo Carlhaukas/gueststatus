@@ -16,12 +16,15 @@ Hosting is rewarding, but let’s be real—it’s also a lot of work. Between c
 * **Simplifying Management:** Track check-outs and prevent overstays effortlessly.  
 * **Increasing Efficiency:** Automate monitoring so you can focus on what matters.  
 * **Enhancing Awareness:** Get real-time updates on arrivals, cleanings, and more.  
+* **Preventing Wi-Fi Problems:** Ensure guests stay happily connected online.  
+
 
 ### What Makes Shield Unique
 **Shield** isn’t just another gadget—it’s a smarter way to host. Here’s what sets it apart:
 * **Privacy-First Design:** No cameras, no microphones—just GDPR-compliant insights that respect your guests.  
 * **Effortless Setup:** Plug it into your router, and it’s ready to go. No complicated setup required.  
 * **Smart, Not Overwhelming:** Get the insights you need without being bombarded by unnecessary alerts.  
+* **Wi-Fi Monitoring:** Keep track of your Wi-Fi connection to ensure seamless guest experiences.  
 
 ### Ready to Simplify Hosting?
 Join the waitlist today and be among the first to experience **Shield**—the smarter way to host. Take the first step toward saving time, protecting your property, and delivering exceptional guest experiences.
