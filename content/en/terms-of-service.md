@@ -15,6 +15,7 @@ The **Shield device** is a privacy-safe, GDPR-compliant tool designed to help sh
 - Detect overstays by monitoring device connections.  
 - Schedule cleanings by identifying guest departures.  
 - Monitor arrivals and follow up if guests do not arrive as scheduled.  
+- Network health monitoring for stable guest connectivity.
 
 The Service includes:  
 - A one-time purchase of the Shield device.  
