@@ -11,8 +11,10 @@ Introducing **Shield**, the **tiny, discreet device** that plugs into your route
 
 **✔ Prevent Overstays:** Detect stays longer than booked.  
 **✔ Schedule Cleanings:** Know exactly when guests leave.  
-**✔ Monitor Arrivals:** Follow up if guests never arrive.  
-**✔ Prevent Wi-Fi Disruptions:** Ensure happy guests.  
+**✔ Monitor Arrivals:** Follow up if guests never arrive.    
+**✔ Ensure guests have internet:** Act if Wi-Fi is disturbed.  
+**✔ Prevent Misuse:** Detect unusual bandwidth usage (e.g., torrenting).  
+
 
 Take control, effortlessly, with **Shield**.
 

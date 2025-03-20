@@ -65,7 +65,7 @@ filename = "sitemap.xml"
 
 [params]
 mainSections = ["post"]
-text_color = ""
+text_color = "black"
 author = "GuestStatus Team" # default author, override via `author` in a posts front matter
 favicon = "images/Gueststatus favicon.jpg"
 site_logo = "images/Gueststatus logo 4-1.svg"

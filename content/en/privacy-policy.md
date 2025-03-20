@@ -16,7 +16,7 @@ Carl Haukås Holding AS (operating as “GuestStatus”) is a technology company
 
 - **Company Registration Number:** MVA920284574  
 - **Address:** Thormøhlens gate 51, 5006 Bergen, Norway  
-- **Email:** carl@haukas.eu  
+- **Email:** carl@gueststatus.com  
 
 For data protection inquiries, please contact us at the email address above.
 
@@ -84,7 +84,7 @@ We process your data for the following purposes and legal bases:
   - Develop new features and improve the Shield service.  
   - Conduct market research and innovation.  
   - **Legal Basis:** Legitimate Interests (GDPR Article 6(1)(f)) – To innovate and enhance our products.  
-  - **Safeguards:** Data is anonymized (e.g., MAC addresses hashed, IP addresses masked) and aggregated to prevent identification of individuals. Users can opt out of R&D data use by contacting us at **carl@haukas.eu**.  
+  - **Safeguards:** Data is anonymized (e.g., MAC addresses hashed, IP addresses masked) and aggregated to prevent identification of individuals. Users can opt out of R&D data use by contacting us at **carl@gueststatus.com**.  
 
 #### **To Comply with Legal Obligations**
 - Process your data to meet legal or regulatory requirements.  
@@ -150,7 +150,7 @@ You have the following rights regarding your personal data:
 - **Objection:** Object to processing based on legitimate interests.  
 - **Withdraw Consent:** Withdraw consent at any time (if applicable).  
 
-To exercise your rights, contact us at **carl@haukas.eu**. We will respond within one month.  
+To exercise your rights, contact us at **carl@gueststatus.com**. We will respond within one month.  
 
 You also have the right to lodge a complaint with the Norwegian Data Protection Authority (Datatilsynet):  
 - **Website:** [https://www.datatilsynet.no/](https://www.datatilsynet.no/)  
@@ -185,4 +185,4 @@ We may update this policy from time to time. Significant changes will be communi
 For questions or to exercise your rights, contact us at:  
 Carl Haukås Holding AS (operating as “GuestStatus”)  
 Thormøhlens gate 51, 5006 Bergen, Norway  
-Email: carl@haukas.eu  
+Email: carl@gueststatus.com  

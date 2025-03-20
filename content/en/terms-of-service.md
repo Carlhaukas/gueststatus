@@ -137,7 +137,7 @@ We may update these Terms from time to time. Significant changes will be communi
 For questions or concerns about these Terms, contact us at:  
 Carl Haukås Holding AS  
 Thormøhlens gate 51, 5006 Bergen, Norway  
-Email: carl@haukas.eu  
+Email: carl@gueststatus.com  
 
 ---
 
