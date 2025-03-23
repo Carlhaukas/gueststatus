@@ -57,49 +57,18 @@
 
 	<script src="https://getlaunchlist.com/js/widget.js" defer></script>  
 
-<body>
 
+<script src="https://cdn.brevo.com/js/sdk-loader.js" async></script> 
+<script>
     
-  
-    
-    <div id="waitlistModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1000; display: none; justify-content: center; align-items: center;">
-      <div style="background-color: white; padding: 20px; border-radius: 5px;">
-        <button id="close-timed-popup">Close</button>
-        <div class="launchlist-widget" data-key-id="9l7a3o" data-height="180px"></div>
-      </div>
-    </div>
-    
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const popup = document.getElementById('waitlistModal');
-        const closeButton = document.getElementById('close-timed-popup');
-
-        
-        const excludedPages = ['/signup/', '/thank-you/']; 
-
-        
-        const currentPath = window.location.pathname;
-
-        
-        if (excludedPages.includes(currentPath)) {
-          console.log('Popup disabled on this page:', currentPath);
-          return; 
+    window.Brevo = window.Brevo || [];
+    Brevo.push([
+        "init",
+        {
+        client_key: "3af8qgbd2pel4o5iscdq0dg0"
         }
-
-        
-        setTimeout(function() {
-          console.log('Showing popup after 10 seconds');
-          popup.style.display = 'flex';
-        }, 10000); 
-
-        
-        closeButton.addEventListener('click', function() {
-          popup.style.display = 'none';
-        });
-      });
-    </script>
-  
-</body>
+    ]);
+</script>
   </head><body class="ma0 avenir development">
 
     
@@ -195,7 +164,7 @@
       <h4 class="f5 white-70 b pa2">Quick Links</h4>
       <ul class="list pl0 ml0">
         <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/about">About</a></li>
-        <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/articles">Articles</a></li>
+        <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/post">Articles</a></li>
         <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/contact">Contact</a></li>
       </ul>
     </div>
@@ -203,8 +172,8 @@
     <div class="w-100 w-third-ns pa2">
       <h4 class="f5 white-70 b pa2">Legal</h4>
       <ul class="list pl0 ml0">
-        <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/privacy-policy">Privacy Policy</a></li>
-        <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/terms-of-service">Terms of Service</a></li>
+        <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/privacy-policy">Privacy</a></li>
+        <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/terms-of-service">Terms</a></li>
       </ul>
     </div>
 

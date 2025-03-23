@@ -32,6 +32,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/prevent-overstays-airbnb-property/</loc>
+    <lastmod>2023-10-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prevent-overstays-airbnb-property/</loc>
+    <lastmod>2023-10-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/en/post/chapter-6/</loc>
     <lastmod>2017-04-14T11:25:05-04:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -89,16 +99,6 @@
   </url><url>
     <loc>http://localhost:1313/post/chapter-2/</loc>
     <lastmod>2017-04-10T11:00:59-04:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/en/post/chapter-1/</loc>
-    <lastmod>2017-04-09T10:58:08-04:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/post/chapter-1/</loc>
-    <lastmod>2017-04-09T10:58:08-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>

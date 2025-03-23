@@ -60,49 +60,18 @@
 
 	<script src="https://getlaunchlist.com/js/widget.js" defer></script>  
 
-<body>
 
+<script src="https://cdn.brevo.com/js/sdk-loader.js" async></script> 
+<script>
     
-  
-    
-    <div id="waitlistModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1000; display: none; justify-content: center; align-items: center;">
-      <div style="background-color: white; padding: 20px; border-radius: 5px;">
-        <button id="close-timed-popup">Close</button>
-        <div class="launchlist-widget" data-key-id="9l7a3o" data-height="180px"></div>
-      </div>
-    </div>
-    
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const popup = document.getElementById('waitlistModal');
-        const closeButton = document.getElementById('close-timed-popup');
-
-        
-        const excludedPages = ['/signup/', '/thank-you/']; 
-
-        
-        const currentPath = window.location.pathname;
-
-        
-        if (excludedPages.includes(currentPath)) {
-          console.log('Popup disabled on this page:', currentPath);
-          return; 
+    window.Brevo = window.Brevo || [];
+    Brevo.push([
+        "init",
+        {
+        client_key: "3af8qgbd2pel4o5iscdq0dg0"
         }
-
-        
-        setTimeout(function() {
-          console.log('Showing popup after 10 seconds');
-          popup.style.display = 'flex';
-        }, 10000); 
-
-        
-        closeButton.addEventListener('click', function() {
-          popup.style.display = 'none';
-        });
-      });
-    </script>
-  
-</body>
+    ]);
+</script>
   </head><body class="ma0 avenir development">
 
     
@@ -178,6 +147,32 @@
             <div class="mb3 pa4 black overflow-hidden">
     
       <div class="f6">
+        April 12, 2017
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/chapter-4/" class="link black dim">
+        Chapter IV: Master Jacques Coppenole
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>While the pensioner of Ghent and his eminence were exchanging very low
+bows and a few words in voices still lower, a man of lofty stature, with a
+large face and broad shoulders, presented himself, in order to enter
+abreast with Guillaume Rym; one would have pronounced him a bull-dog by
+the side of a fox. His felt doublet and leather jerkin made a spot on the
+velvet and silk which surrounded him. Presuming that he was some groom who
+had stolen in, the usher stopped him.</p>
+    </div>
+  <a href="/post/chapter-4/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 black overflow-hidden">
+    
+      <div class="f6">
         April 11, 2017
       </div>
     
@@ -197,73 +192,6 @@ moment, than these few words, which fell from the lips of the usher, “His
 eminence, Monseigneur the Cardinal de Bourbon.”</p>
     </div>
   <a href="/post/chapter-3/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-            <div class="mb3 pa4 black overflow-hidden">
-    
-      <div class="f6">
-        April 10, 2017
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="/post/chapter-2/" class="link black dim">
-        Chapter II: Pierre Gringoire
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      <p>Nevertheless, as be harangued them, the satisfaction and admiration
-unanimously excited by his costume were dissipated by his words; and when
-he reached that untoward conclusion: “As soon as his illustrious eminence,
-the cardinal, arrives, we will begin,” his voice was drowned in a thunder
-of hooting.</p>
-<p>“Begin instantly! The mystery! the mystery immediately!” shrieked the
-people. And above all the voices, that of Johannes de Molendino was
-audible, piercing the uproar like the fife’s derisive serenade: “Commence
-instantly!” yelped the scholar.</p>
-    </div>
-  <a href="/post/chapter-2/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-            <div class="mb3 pa4 black overflow-hidden">
-    
-      <div class="f6">
-        April 9, 2017
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="/post/chapter-1/" class="link black dim">
-        Chapter I: The Grand Hall
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      <p>Three hundred and forty-eight years, six months, and nineteen days ago
-to-day, the Parisians awoke to the sound of all the bells in the triple
-circuit of the city, the university, and the town ringing a full peal.</p>
-<p>The sixth of January, 1482, is not, however, a day of which history has
-preserved the memory. There was nothing notable in the event which thus
-set the bells and the bourgeois of Paris in a ferment from early morning.
-It was neither an assault by the Picards nor the Burgundians, nor a hunt
-led along in procession, nor a revolt of scholars in the town of Laas, nor
-an entry of “our much dread lord, monsieur the king,” nor even a pretty
-hanging of male and female thieves by the courts of Paris. Neither was it
-the arrival, so frequent in the fifteenth century, of some plumed and
-bedizened embassy. It was barely two days since the last cavalcade of that
-nature, that of the Flemish ambassadors charged with concluding the
-marriage between the dauphin and Marguerite of Flanders, had made its
-entry into Paris, to the great annoyance of M. le Cardinal de Bourbon,
-who, for the sake of pleasing the king, had been obliged to assume an
-amiable mien towards this whole rustic rabble of Flemish burgomasters, and
-to regale them at his Hôtel de Bourbon, with a very “pretty morality,
-allegorical satire, and farce,” while a driving rain drenched the
-magnificent tapestries at his door.</p>
-    </div>
-  <a href="/post/chapter-1/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 
         </div>
@@ -312,7 +240,7 @@ magnificent tapestries at his door.</p>
       <h4 class="f5 white-70 b pa2">Quick Links</h4>
       <ul class="list pl0 ml0">
         <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/about">About</a></li>
-        <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/articles">Articles</a></li>
+        <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/post">Articles</a></li>
         <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/contact">Contact</a></li>
       </ul>
     </div>
@@ -320,8 +248,8 @@ magnificent tapestries at his door.</p>
     <div class="w-100 w-third-ns pa2">
       <h4 class="f5 white-70 b pa2">Legal</h4>
       <ul class="list pl0 ml0">
-        <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/privacy-policy">Privacy Policy</a></li>
-        <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/terms-of-service">Terms of Service</a></li>
+        <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/privacy-policy">Privacy</a></li>
+        <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/terms-of-service">Terms</a></li>
       </ul>
     </div>
 
