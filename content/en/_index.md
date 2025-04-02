@@ -1,6 +1,5 @@
 ---
 title: "Host with Peace of Mind"
-
 description: "A tiny device for big peace of mind. Get real-time, privacy-safe insights to protect your property and optimize operations."
 theme_version: '2.8.2'
 featured_image: '/images/gueststatuswoman3.jpg'

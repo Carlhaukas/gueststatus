@@ -1,0 +1,190 @@
+{{ define "main" }} {{/* Use the block your theme defines, likely "main" */}}
+
+<article class="cf pa3 pa4-m pa4-l">
+  <div class="measure-wide-l center lh-copy nested-copy-line-height nested-links {{ $.Param "text_color" | default "mid-gray" }}">
+    {{/* Page Title */}}
+    <h2>Let guests connect to Wi-Fi instantly</h2>
+    <p>Tired of slowly spelling out complex passwords? Print a secure QR code for your guest Wi-Fi in seconds. Visitors just point their phone camera, scan, and connect. It's the simple, modern way to offer seamless access and impress your guests.</p>
+
+    {{/* --- Form Section (Now Framed via CSS) --- */}}
+    <form id="wifiForm" class="mb4"> {{/* Added mb4 Tachyons class for margin-bottom */}}
+      <div class="mb3">
+        <label for="ssid" class="db mb2 fw6">Network Name (SSID):</label>
+        <input type="text" id="ssid" placeholder="Your Network Name" required class="input-reset ba b--black-20 pa2 mb2 db w-100">
+      </div>
+      <div class="mb3">
+        <label for="password" class="db mb2 fw6">Password:</label>
+        <input type="text" id="password" placeholder="Your Network Password" class="input-reset ba b--black-20 pa2 mb2 db w-100">
+      </div>
+      <div class="mb4"> {{/* Keep mb4 here for spacing above button */}}
+        <label for="encryption" class="db mb2 fw6">Encryption Type:</label>
+        <select id="encryption" class="input-reset ba b--black-20 pa2 mb2 db w-100">
+          <option value="WPA" selected>WPA/WPA2 (Most Common)</option>
+          <option value="WEP">WEP (Older Router)</option>
+          <option value="nopass">No Password (Open Network)</option>
+        </select>
+      </div>
+      {{/* Button is now inside the framed area */}}
+      <button type="submit" class="f6 link dim br2 ph3 pv2 mb2 dib white bg-custom-cta w-100 generate-btn">Generate & Print</button>
+    </form>
+
+    {{/* --- Result Section (Initially Hidden) --- */}}
+    <div id="result" class="hidden">
+      {{/* --- Area targeted for Print CSS and PDF generation --- */}}
+      <div id="printable-card-wrapper">
+        <div id="printable-card" >
+            <h3 class="wifi-title tc mt0 mb2">Wi‑Fi Access</h3>
+            <p class="tc mid-gray f6 mt0 mb3">Scan the QR Code to Connect</p>
+            <div class="qr-section tc">
+                <div id="qrcode" class="dib"></div>
+            </div>
+            <div class="credentials-print mt3 bt b--black-10 pt3">
+                <p class="network-name ma0 mb1 f6">
+                    <span class="ssid-label fw6">Network:</span>
+                    <span id="resultSSID" class="ml1"></span>
+                </p>
+                <p class="network-pass ma0 mb1 f6">
+                    <span class="key-placeholder fw6">Password:</span>
+                    <span id="resultPass" class="ml1"></span>
+                </p>
+            </div>
+        </div>
+      </div>
+
+      {{/* --- Print Button (Marked as no-print) --- */}}
+      <div class="flex flex-wrap justify-between mt3 no-print">
+        <button class="f6 link dim br2 ph3 pv2 mb2 dib white print-btn w-100 w-48-ns">Print</button>
+      </div>
+
+      {{/* --- Feedback (Marked as no-print) --- */}}
+      <div class="feedback tc mt4 pt3 f6 mid-gray bt b--black-10 no-print" id="feedback-section">
+        <p>
+            Like our free tool? Please leave a short review—it really helps us out.
+            <a href="https://www.google.com/search?q=GuestStatus+review" target="_blank" rel="noopener">Leave your review</a>.
+        </p>
+      </div>
+    </div> {{/* End #result */}}
+
+  </div> {{/* End .measure-wide-l */}}
+</article> {{/* End article */}}
+
+{{/* --- Dependencies --- */}}
+<link rel="stylesheet" href="{{ "/css/wifi-generator.css" | relURL }}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="{{ "/js/wifi-generator.js" | relURL }}" defer></script>
+
+{{/* --- Inline Styles (Includes consolidated PRINT styles) --- */}}
+<style>
+  /* Custom CTA button color - Applied via class */
+  .bg-custom-cta {
+    background-color: #00a3ff !important;
+    color: white;
+  }
+
+  .bg-top {
+    background-position: center !important;
+  }
+
+  /* Specific Button Overrides (Ensure they all use the blue) */
+  #wifiForm button.generate-btn,
+  #result .print-btn
+  {
+    background-color: #00a3ff !important;
+    color: white !important;
+  }
+
+  #printable-card #qrcode img,
+  #printable-card #qrcode canvas {
+      display: block;
+      margin: 0 auto;
+  }
+
+  /* --- Style for Input Fields --- */
+  /* Focus style for inputs/select for good UX */
+  #wifiForm input:focus,
+  #wifiForm select:focus {
+      background-color: #ffffff; /* White background when selected/focused */
+      border-color: #00a3ff; /* Highlight border with CTA color */
+      box-shadow: 0 0 0 1px #00a3ff; /* Add subtle glow */
+      outline: none; /* Remove default browser outline */
+      /* Inherit transition from Tachyons or add one here if needed */
+  }
+
+  /* --- Style for the Form Container --- */
+  #wifiForm {
+    background-color: #f8f9fa; /* A very light gray background for the whole form */
+    padding: 1.5rem;         /* Add some internal spacing */
+    border: 1px solid #dee2e6; /* Add a subtle border */
+    border-radius: 8px;       /* Add rounded corners */
+    /* Tachyons mb4 class on the form provides margin below it */
+  }
+
+
+  /* --- CONSOLIDATED PRINT STYLES --- */
+  @media print {
+    /* 1. Hide absolutely everything */
+    body * {
+      visibility: hidden !important;
+    }
+
+    /* 2. Make ONLY the print wrapper and its contents visible */
+    #printable-card-wrapper,
+    #printable-card-wrapper * {
+      visibility: visible !important;
+    }
+
+    /* 3. Position the wrapper */
+    #printable-card-wrapper {
+      position: absolute !important;
+      left: 0 !important;
+      top: 0 !important;
+      width: 100% !important;
+      padding: 10mm !important;
+      margin: 0 !important;
+      box-sizing: border-box !important;
+      border: none !important;
+      box-shadow: none !important;
+      background: none !important;
+    }
+
+    /* 4. Style the card *itself* for printing */
+    #printable-card {
+      visibility: visible !important;
+      margin: 0 auto !important;
+      border: none !important;
+      box-shadow: none !important;
+      max-width: 180mm !important;
+      page-break-inside: avoid !important;
+      padding: 8mm !important;
+      background: white !important;
+      color: black !important;
+      border-radius: 0 !important;
+    }
+
+    /* 5. Ensure card contents are styled for print */
+    #printable-card .credentials-print { border-top: 1px dashed #aaa !important; }
+    /* Add other specific print styles for card content if needed */
+
+
+    /* 6. Ensure QR code background is white for printing */
+    #printable-card #qrcode img { background: white !important; } /* Ensure QR itself has white BG */
+
+
+    /* 7. Explicitly hide elements marked with .no-print */
+    .no-print { display: none !important; visibility: hidden !important; }
+
+
+    /* 8. Reset body defaults AND TRY TO CONTAIN */
+    body, html {
+       background: white !important;
+       color: black !important;
+       margin: 0 !important;
+       padding: 0 !important;
+       height: 100vh;
+       overflow: hidden !important;
+    }
+  }
+
+</style>
+
+{{ end }} {{/* End define "main" */}}

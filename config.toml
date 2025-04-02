@@ -78,3 +78,4 @@ featured_image_class = "cover bg-top"
 cover_dimming_class = "bg-black-60"
 recent_posts_number = 3
 body_classes = "avenir"
+googleReviewLink = "https://your-google-review-link.com"

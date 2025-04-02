@@ -1,0 +1,270 @@
+/* Basic Reset & Body */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #343a40;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+h1, h2 {
+  color: #212529;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  color: #6c757d;
+  text-align: center;
+}
+
+/* Form Styles */
+#wifiForm {
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #495057;
+}
+
+.form-group input[type="text"],
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Include padding in width */
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-group input[type="text"]:focus,
+.form-group select:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-group small {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.85em;
+  color: #6c757d;
+}
+
+/* Button Styles */
+button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+  display: block; /* Make buttons block level */
+  width: 100%; /* Make buttons full width */
+  margin-bottom: 0.5rem; /* Add space between buttons */
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.generate-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.generate-btn:hover {
+  background-color: #0056b3;
+}
+
+.print-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.print-btn:hover {
+  background-color: #1e7e34;
+}
+
+.new-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.new-btn:hover {
+  background-color: #5a6268;
+}
+
+
+/* Result Section */
+.hidden {
+  display: none;
+}
+
+#result h2 {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  border-top: 1px solid #e9ecef;
+  padding-top: 2rem;
+}
+
+.qrcode-container {
+  margin: 1rem 0 2rem 0;
+  padding: 1.5rem;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
+#qrcode {
+  display: inline-block; /* Center the QR code canvas */
+  margin-bottom: 1.5rem;
+  background-color: white; /* Ensure QR code background is white */
+  padding: 10px; /* Add padding around QR code */
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+.credentials {
+  text-align: left;
+  display: inline-block; /* Align left within centered container */
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px dashed #adb5bd;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+
+.credentials p {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #343a40;
+  text-align: left;
+}
+.credentials p:last-child {
+  margin-bottom: 0;
+}
+
+.credentials strong {
+  color: #495057;
+}
+
+.credentials small {
+   display: block;
+   margin-top: 1rem;
+   font-size: 0.9em;
+   color: #6c757d;
+   text-align: center;
+}
+
+/* Feedback Section */
+.feedback {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9em;
+  color: #6c757d;
+}
+
+.feedback hr {
+  border: 0;
+  height: 1px;
+  background-color: #e9ecef;
+  margin-bottom: 1.5rem;
+}
+
+.feedback a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.feedback a:hover {
+  text-decoration: underline;
+}
+
+
+/* Print Styles */
+@media print {
+  body {
+      background-color: white; /* Ensure white background for printing */
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+  }
+
+  .container {
+      max-width: 100%;
+      margin: 0;
+      padding: 10mm; /* Add some margin for printing */
+      box-shadow: none;
+      border: none;
+  }
+
+  /* Hide everything except the result section */
+  body * {
+      visibility: hidden;
+  }
+
+  #result, #result * {
+      visibility: visible;
+  }
+
+  /* Ensure result takes up the page */
+  #result {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      border-top: none; /* Remove top border */
+      padding-top: 0; /* Remove padding */
+  }
+
+  #result h2 {
+      padding-top: 0;
+      border-top: none;
+      margin-top: 0;
+      text-align: center; /* Center title */
+  }
+
+  .qrcode-container {
+      border: 1px solid #ccc; /* Add a simple border for the printout */
+      padding: 1rem;
+      margin: 1rem 0;
+      page-break-inside: avoid; /* Try to keep card together */
+  }
+
+  .credentials {
+      border: 1px dashed #ccc;
+  }
+
+  /* Hide buttons and form in print */
+  #wifiForm, .generate-btn, .print-btn, .new-btn, .feedback, .container > p:first-of-type, .container > h1 {
+      display: none !important;
+  }
+}

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Free Guest Wi-Fi QR Code Generator | GuestStatus</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.145.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="GuestStatus Team">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+    
+      
+<link rel="shortcut icon" href="/images/Gueststatus%20favicon.jpg" type="image/x-icon" />
+
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/en/wifi-generator/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/en/wifi-generator/">
+  <meta property="og:site_name" content="GuestStatus">
+  <meta property="og:title" content="Free Guest Wi-Fi QR Code Generator">
+  <meta property="og:description" content="The Smart, Affordable Solution for Airbnb Hosts to Manage Properties with Confidence.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="en">
+
+  <meta itemprop="name" content="Free Guest Wi-Fi QR Code Generator">
+  <meta itemprop="description" content="The Smart, Affordable Solution for Airbnb Hosts to Manage Properties with Confidence.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Free Guest Wi-Fi QR Code Generator">
+  <meta name="twitter:description" content="The Smart, Affordable Solution for Airbnb Hosts to Manage Properties with Confidence.">
+
+	<script src="https://getlaunchlist.com/js/widget.js" defer></script>  
+
+
+<script src="https://cdn.brevo.com/js/sdk-loader.js" async></script> 
+<script>
+    
+    window.Brevo = window.Brevo || [];
+    Brevo.push([
+        "init",
+        {
+        client_key: "3af8qgbd2pel4o5iscdq0dg0"
+        }
+    ]);
+</script>
+  </head><body class="ma0 avenir development">
+
+    
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('/images/gueststatus-qr3.jpg');">
+    
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        <img src="/images/Gueststatus%20logo%204-1.svg" class="w100 mw5-ns" alt="GuestStatus" />
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="Articles page">
+              Articles
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="Contact page">
+              Contact
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/en/wifi-generator/" title="Instant Guest WiFi page">
+              Instant Guest WiFi
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/signup/" title="Get Early Access → page">
+              Get Early Access →
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv4 pv6-l ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 white-90 mb0 lh-title">
+          Free Guest Wi-Fi QR Code Generator
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+       
+
+<article class="cf pa3 pa4-m pa4-l">
+  <div class="measure-wide-l center lh-copy nested-copy-line-height nested-links black">
+    
+    <h2>Let guests connect to Wi-Fi instantly</h2>
+    <p>Tired of slowly spelling out complex passwords? Print a secure QR code for your guest Wi-Fi in seconds. Visitors just point their phone camera, scan, and connect. It's the simple, modern way to offer seamless access and impress your guests.</p>
+
+    
+    <form id="wifiForm" class="mb4"> 
+      <div class="mb3">
+        <label for="ssid" class="db mb2 fw6">Network Name (SSID):</label>
+        <input type="text" id="ssid" placeholder="Your Network Name" required class="input-reset ba b--black-20 pa2 mb2 db w-100">
+      </div>
+      <div class="mb3">
+        <label for="password" class="db mb2 fw6">Password:</label>
+        <input type="text" id="password" placeholder="Your Network Password" class="input-reset ba b--black-20 pa2 mb2 db w-100">
+      </div>
+      <div class="mb4"> 
+        <label for="encryption" class="db mb2 fw6">Encryption Type:</label>
+        <select id="encryption" class="input-reset ba b--black-20 pa2 mb2 db w-100">
+          <option value="WPA" selected>WPA/WPA2 (Most Common)</option>
+          <option value="WEP">WEP (Older Router)</option>
+          <option value="nopass">No Password (Open Network)</option>
+        </select>
+      </div>
+      
+      <button type="submit" class="f6 link dim br2 ph3 pv2 mb2 dib white bg-custom-cta w-100 generate-btn">Generate & Print</button>
+    </form>
+
+    
+    <div id="result" class="hidden">
+      
+      <div id="printable-card-wrapper">
+        <div id="printable-card" >
+            <h3 class="wifi-title tc mt0 mb2">Wi‑Fi Access</h3>
+            <p class="tc mid-gray f6 mt0 mb3">Scan the QR Code to Connect</p>
+            <div class="qr-section tc">
+                <div id="qrcode" class="dib"></div>
+            </div>
+            <div class="credentials-print mt3 bt b--black-10 pt3">
+                <p class="network-name ma0 mb1 f6">
+                    <span class="ssid-label fw6">Network:</span>
+                    <span id="resultSSID" class="ml1"></span>
+                </p>
+                <p class="network-pass ma0 mb1 f6">
+                    <span class="key-placeholder fw6">Password:</span>
+                    <span id="resultPass" class="ml1"></span>
+                </p>
+            </div>
+        </div>
+      </div>
+
+      
+      <div class="flex flex-wrap justify-between mt3 no-print">
+        <button class="f6 link dim br2 ph3 pv2 mb2 dib white print-btn w-100 w-48-ns">Print</button>
+      </div>
+
+      
+      <div class="feedback tc mt4 pt3 f6 mid-gray bt b--black-10 no-print" id="feedback-section">
+        <p>
+            Like our free tool? Please leave a short review—it really helps us out.
+            <a href="https://www.google.com/search?q=GuestStatus+review" target="_blank" rel="noopener">Leave your review</a>.
+        </p>
+      </div>
+    </div> 
+
+  </div> 
+</article> 
+
+
+<link rel="stylesheet" href="/css/wifi-generator.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="/js/wifi-generator.js" defer></script>
+
+
+<style>
+   
+  .bg-custom-cta {
+    background-color: #00a3ff !important;
+    color: white;
+  }
+
+  .bg-top {
+    background-position: center !important;
+  }
+
+   
+  #wifiForm button.generate-btn,
+  #result .print-btn
+  {
+    background-color: #00a3ff !important;
+    color: white !important;
+  }
+
+  #printable-card #qrcode img,
+  #printable-card #qrcode canvas {
+      display: block;
+      margin: 0 auto;
+  }
+
+   
+   
+  #wifiForm input:focus,
+  #wifiForm select:focus {
+      background-color: #ffffff;  
+      border-color: #00a3ff;  
+      box-shadow: 0 0 0 1px #00a3ff;  
+      outline: none;  
+       
+  }
+
+   
+  #wifiForm {
+    background-color: #f8f9fa;  
+    padding: 1.5rem;          
+    border: 1px solid #dee2e6;  
+    border-radius: 8px;        
+     
+  }
+
+
+   
+  @media print {
+     
+    body * {
+      visibility: hidden !important;
+    }
+
+     
+    #printable-card-wrapper,
+    #printable-card-wrapper * {
+      visibility: visible !important;
+    }
+
+     
+    #printable-card-wrapper {
+      position: absolute !important;
+      left: 0 !important;
+      top: 0 !important;
+      width: 100% !important;
+      padding: 10mm !important;
+      margin: 0 !important;
+      box-sizing: border-box !important;
+      border: none !important;
+      box-shadow: none !important;
+      background: none !important;
+    }
+
+     
+    #printable-card {
+      visibility: visible !important;
+      margin: 0 auto !important;
+      border: none !important;
+      box-shadow: none !important;
+      max-width: 180mm !important;
+      page-break-inside: avoid !important;
+      padding: 8mm !important;
+      background: white !important;
+      color: black !important;
+      border-radius: 0 !important;
+    }
+
+     
+    #printable-card .credentials-print { border-top: 1px dashed #aaa !important; }
+     
+
+
+     
+    #printable-card #qrcode img { background: white !important; }  
+
+
+     
+    .no-print { display: none !important; visibility: hidden !important; }
+
+
+     
+    body, html {
+       background: white !important;
+       color: black !important;
+       margin: 0 !important;
+       padding: 0 !important;
+       height: 100vh;
+       overflow: hidden !important;
+    }
+  }
+
+</style>
+
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex flex-wrap justify-between items-center">
+
+    <div class="w-100 w-third-ns pa2">
+      <p class="f6 white-70 db pa2">
+        Made in Norway 🇳🇴
+      </p>
+      <p class="f6 white-70 db pa2">
+        Company Registration Number: MVA920284574
+      </p>
+      <p class="f7 white-70 db pa2">
+        ©  GuestStatus 2025. All rights reserved. 
+      </p>
+    </div>
+
+    <div class="w-100 w-third-ns pa2">
+      <h4 class="f5 white-70 b pa2">Quick Links</h4>
+      <ul class="list pl0 ml0">
+        <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/about">About</a></li>
+        <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/post">Articles</a></li>
+        <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="w-100 w-third-ns pa2">
+      <h4 class="f5 white-70 b pa2">Legal</h4>
+      <ul class="list pl0 ml0">
+        <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/privacy-policy">Privacy</a></li>
+        <li class="pv1"><a class="f6 hover-white no-underline white-70 pa2 db" href="/terms-of-service">Terms</a></li>
+      </ul>
+    </div>
+
+    <div class="w-100 pa2 tc">
+      <a href="/signup/" class="footer-cta">Get Early Access →</a>
+    </div>
+
+  </div>
+</footer>
+  </body>
+</html>

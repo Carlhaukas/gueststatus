@@ -1,0 +1,112 @@
+/* wifi-generator.css */
+
+/* Add minor adjustments if theme styles aren't enough */
+#wifiForm label.fw6 { /* Ensure label weight */
+  font-weight: 600;
+}
+#wifiForm input, #wifiForm select {
+  /* Ensure basic input look */
+  border: 1px solid #ccc;
+}
+#wifiForm button.generate-btn {
+  /* Ensure button look */
+  background-color: #00a3ff; /* Example blue */
+  color: white;
+}
+
+/* Result Area */
+.hidden {
+  display: none;
+}
+
+/* Printable Card Styles (On Screen) */
+#printable-card-wrapper {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+#printable-card {
+  border: 1px solid #ddd;
+  background-color: #fff;
+  padding: 2rem 1.5rem;
+  max-width: 350px; /* Screen max-width */
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-family: sans-serif;
+}
+
+#printable-card .wifi-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: black; /* Changed to black */
+}
+
+#printable-card .qr-section {
+  margin-bottom: 1.5rem;
+}
+
+#printable-card #qrcode {
+  display: block;
+  margin: 0 auto 0.8rem auto; /* Center */
+  padding: 8px; /* Padding around QR */
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  width: 180px; /* Fixed size for QR */
+  height: 180px;
+}
+#printable-card #qrcode img { /* Target the image rendered by qrcode.js */
+  display: block;
+  margin: 0 auto; /* Ensure QR image itself is centered */
+}
+
+#printable-card .scan-me-graphic { /* Can remove if not used */
+  display: block;
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: black; /* Changed to black */
+}
+
+#printable-card .credentials-print {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #ccc;
+}
+
+#printable-card .network-name {
+  font-size: 1.3rem; /* Original Size */
+  font-weight: 500;
+  color: black; /* Changed to black */
+  margin-bottom: 0.5rem;
+  word-wrap: break-word;
+}
+
+#printable-card .network-pass {
+  font-size: 1.3rem; /* Matches network-name's font-size */
+  color: black; /* Changed to black */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  word-wrap: break-word;
+}
+#printable-card .network-pass .key-placeholder {
+  font-size: 1.3rem; /* Matches network-name's font-size */
+  line-height: 1;
+  color: black; /* Changed to black */
+}
+
+/* Buttons Below Card */
+#result .print-btn,
+#result .download-btn {
+  max-width: 350px; /* Match card width */
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+#result .print-btn { background-color: #00a3ff; } /* Example green */
+#result .download-btn { background-color: #00a3ff; } /* Use custom CTA */
