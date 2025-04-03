@@ -1,5 +1,6 @@
 // wifi-generator.js
 // Version using the Cloning Method for PDF generation
+// WITH Cloudflare Function counter integration
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("WiFi Generator Script Loaded");
@@ -77,10 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Generated WiFi String:', wifiString);
 
         // --- Generate QR Code ---
-        qrCodeDiv.innerHTML = '';
-        currentQRCode = null;
+        qrCodeDiv.innerHTML = ''; // Clear previous QR code
+        currentQRCode = null; // Reset instance
 
         try {
+            // Generate the QR Code
             currentQRCode = new QRCode(qrCodeDiv, {
                 text: wifiString,
                 width: 180,
@@ -91,6 +93,28 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             console.log('QR Code generated successfully.');
 
+            // --- INCREMENT COUNTER ---
+            // Call the Cloudflare Function endpoint to increment the counter
+            // This happens asynchronously in the background.
+            console.log('Calling counter API: /api/increment-count');
+            fetch('/api/increment-count', {
+                    method: 'POST'
+                })
+                .then(response => {
+                    if (!response.ok && response.status !== 204) { // 204 No Content is a success response here
+                        console.error('Failed to increment counter. Status:', response.status, response.statusText);
+                        // Optional: You could add more robust error handling/logging here if needed
+                    } else {
+                         console.log('Counter API call successful (Status: ' + response.status + ').');
+                    }
+                })
+                .catch(error => {
+                    // Handle network errors or other issues with the fetch itself
+                    console.error('Error calling counter API:', error);
+                });
+            // --- END OF COUNTER INCREMENT ---
+
+
             // --- Display Results ---
             resultSSIDSpan.textContent = ssid;
             resultPassSpan.textContent = (encryption === 'nopass' || !password) ? 'None' : password;
@@ -99,6 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (resultDiv) resultDiv.classList.remove('hidden');
             if (feedbackSection) feedbackSection.classList.remove('hidden');
 
+            // Scroll to the results
             resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
         } catch (err) {
@@ -106,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Could not generate QR code. Please check input/console.');
             if (resultDiv) resultDiv.classList.add('hidden');
             if (feedbackSection) feedbackSection.classList.add('hidden');
-            currentQRCode = null;
+            currentQRCode = null; // Ensure it's null on failure
         }
     });
 
@@ -239,7 +264,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!downloadButton) {
             console.warn("Download button logic skipped: Button (.download-btn) not found.");
         }
-        // No need for printableCardElement check here as button existence implies it should be checked inside
     }
 
     console.log("WiFi Generator Script Initialized Successfully.");
