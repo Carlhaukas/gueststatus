@@ -7,7 +7,7 @@
 export async function onRequestPost(context) {
     // context contains request, env, params, waitUntil, next, data
     const kvNamespace = context.env.WIFI_COUNTER_KV;
-    const countKey = 'generation_count'; // The key we use in KV to store the count
+    const countKey = 'qr_generation_count'; // The key we use in KV to store the count
 
     if (!kvNamespace) {
         console.error("KV Namespace 'WIFI_COUNTER_KV' is not bound.");
