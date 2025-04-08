@@ -18,4 +18,4 @@ Introducing **Shield**, the **tiny, discreet device** that plugs into your route
 
 Take control, effortlessly, with **Shield**.
 
-[**Get Early Access →**]({{< ref "signup.md" >}})
+[Buy here](https://buy.stripe.com/bIYaFk9e1cfVaXK144)
