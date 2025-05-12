@@ -1,42 +1,270 @@
 {{ define "main" }}
-  <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy {{ $.Param "text_color" | default "mid-gray" }}">
-    {{ .Content }}
-  </article>
+  <div class="content"> {{/* Simple outer wrapper */}}
 
-  {{/* Define a section to pull recent posts from. For Hugo 0.20 this will default to the section with the most number of pages. */}}
-  {{ $mainSections := site.Params.mainSections | default (slice "post") }}
-  {{ $show_recent_posts := site.Params.ananke.show_recent_posts }}
-  {{ $section := where $.Site.RegularPages "Section" "in" $mainSections }}
-  {{ $section_count := len $section }}
+    {{/* --- HERO SECTION (Built from .Params.hero) --- */}}
+    {{ with .Params.hero }}
+      {{ $heroBg := .background_image | default $.Params.featured_image }}
+      {{ $logo := $.Site.Params.site_logo }}
+      {{ $siteTitle := $.Site.Title }}
 
-  {{ if and ($show_recent_posts) (ge $section_count 1) }}
-    <div class="pa3 pa4-ns w-100 w-70-ns center">
-      {{ $n_posts := $.Param "recent_posts_number" | default 3 }}
+      <section class="hero-section cover bg-center relative" {{ with $heroBg }}style="background-image: url('{{ . | absURL }}');"{{ end }}>
+          {{/* Overlay Div - Removed absolute--fill, adjust padding/height */}}
+          <div class="{{ $.Site.Params.cover_dimming_class | default "bg-black-70" }} min-vh-75 w-100 pa3 ph4-ns flex flex-column"> {{/* Reduced min height slightly */}}
 
-      <section class="w-100 mw8">
-        {{/* Range through the first $n_posts items of the section */}}
-        {{ range (first $n_posts $section) }}
-          <div class="relative w-100 mb4">
-            {{ .Render "summary-with-image" }}
-          </div>
-        {{ end }}
-      </section>
+            {{/* --- INCLUDE SITE LOGO ONLY HERE --- */}}
+            {{/* Added z-1 to force it higher, and temporary background for debug */}}
+            <div class="w-100 flex-shrink-0 z-1" {{/* style="background: rgba(255,0,0,0.5);" */}} > {{/* Remove style later */}}
+              {{ partial "site-logo-only.html" (dict "Site" $.Site "Page" $) }}
+            </div>
+            {{/* --- END SITE LOGO ONLY --- */}}
 
-      {{ if ge $section_count (add $n_posts 1) }}
-        <section class="w-100">
-          <h1 class="f3">{{ i18n "more" }}</h1>
-          {{/* Now, range through the next four after the initial $n_posts items. Nest the requirements, "after" then "first" on the outside */}}
-          {{ range (first 4 (after $n_posts $section))  }}
-            <h2 class="f5 fw4 mb4 dib {{ cond (eq $.Site.Language.LanguageDirection "rtl") "ml3" "mr3" }}">
-              <a href="{{ .RelPermalink }}" class="link black dim">
-                {{ .Title }}
-              </a>
-            </h2>
+            {{/* This div contains the hero text, centered and constrained */}}
+            <div class="w-100 mw8 center white flex-grow-1 flex flex-column justify-center items-center tc z-0"> {{/* Ensure text is behind logo container if needed */}}
+
+              {{/* --- HERO TEXT CONTENT --- */}}
+              <div class="pa3">
+                  <h1 class="f1 f-headline-l fw6 lh-title">{{ .main_headline }}</h1>
+                  {{ with .secondary_tagline }}<div class="f4 ttu tracked mv3">{{ . }}</div>{{ end }}
+                  {{ with .subheadline }}<p class="f4 lh-copy measure center">{{ . }}</p>{{ end }}
+
+                  {{/* CTA Button */}}
+                  {{ if and .cta_text .cta_link }}
+                    <div class="mv4">
+                      <a href="{{ .cta_link }}" class="footer-cta f4">{{ .cta_text }}</a>
+                    </div>
+                    {{ with .subtext }}<p class="f6 mt2">{{ . }}</p>{{ end }}
+                  {{ end }}
+              </div>
+               {{/* --- END HERO TEXT CONTENT --- */}}
+
+            </div> {{/* End Hero Text container */}}
+
+          </div> {{/* End Dimming Overlay Div */}}
+      </section> {{/* End hero-section */}}
+
+
+      {{/* --- VISUALS BELOW HERO --- */}}
+      {{ if or .image_left .image_right }}
+      <section class="hero-visuals pa3 pa4-ns tc">
+        <div class="flex flex-column flex-row-ns items-center justify-center mt4">
+          {{ if and .image_left .image_right }}
+            <div class="w-100 w-40-ns tc ph2 mb3 mb0-ns">
+              {{/* ADDED TITLE FOR LEFT IMAGE */}}
+              {{ with .image_left_title }}
+                <h3 class="f4 fw6 near-black mb2 tc">{{ . }}</h3>
+              {{ end }}
+              <img src="{{ .image_left }}" alt="{{ $.Params.hero.main_headline }} visual 1" class="db center shadow-1 br2">
+            </div>
+            <div class="w-100 w-40-ns tc ph2">
+               {{/* ADDED TITLE FOR RIGHT IMAGE */}}
+              {{ with .image_right_title }}
+                 <h3 class="f4 fw6 near-black mb2 tc">{{ . }}</h3>
+              {{ end }}
+              <img src="{{ .image_right }}" alt="{{ $.Params.hero.main_headline }} visual 2" class="db center shadow-1 br2">
+            </div>
+          {{ else if .image_left }}
+            {{/* If only one image is present, you might want a single title here too */}}
+            {{/* For now, leaving the single image case without a title as per the request focus */}}
+            {{ with .image_left_title }}
+              <h3 class="f6 fw6 near-black mb2 tc">{{ . }}</h3>
+            {{ end }}
+            <img src="{{ .image_left }}" alt="{{ $.Params.hero.main_headline }} visual" class="db center mw6 shadow-1 br2">
           {{ end }}
-        </section>
+        </div>
+         <hr class="mw7 center b--black-10 mt4">
+      </section>
+      {{ else }}
+         <hr class="mw7 center b--black-10 mv4">
       {{ end }}
 
-    </div>
-  {{ end }}
-{{ end }}
+    {{ end }} {{/* End main 'with .Params.hero' */}}
 
+
+    <div class="pa3 pa4-ns mw8 center"> {{/* Wrapper for rest of content */}}
+
+      {{/* --- GUEST CYCLE ADVANTAGE --- */}}
+        {{ with .Params.guest_cycle }}
+            <section class="mv4">
+            <h2 class="f3 fw6 tc">{{ .headline }}</h2>
+            {{ with .copy }}<p class="f4 lh-copy tc measure center">{{ . }}</p>{{ end }}
+            {{ with .points }}
+                <ul class="list pl0 mt3 measure center tc">
+                {{ range . }}
+                    <li class="f5 lh-copy mv2">✔ {{ . }}</li>
+                {{ end }}
+                </ul>
+            {{ end }}
+            {{ with .icons }}
+                <div class="flex flex-wrap justify-center mt4">
+                {{ range . }}
+                <div class="w-50 w-third-ns pa3 tc">
+                    <img src="{{ .src }}" alt="{{ .alt }}" class="h3 w3 db center">
+                    <p class="f6 mt2">{{ .label }}</p>
+                </div>
+                {{ end }}
+                </div>
+            {{ end }}
+            </section>
+            <hr class="mw7 center b--black-10">
+        {{ end }}
+
+      {{/* --- HOW IT WORKS --- */}}
+        {{ with .Params.how_it_works }}
+            <section class="mv4 bg-light-gray br2 pa3 pa4-ns">
+            <h2 class="f3 fw6 tc">{{ .headline }}</h2>
+            {{ with .steps }}
+                <div class="flex flex-wrap justify-center">
+                {{ range . }}
+                <div class="w-100 w-third-ns pa3 tc">
+                    <div class="bg-white pa3 br2 shadow-1 h-100">
+                    <span class="f-headline lh-solid navy">{{ .number }}</span>
+                    <h3 class="f5 fw6 mt3">{{ .title }}</h3>
+                    <p class="f6 lh-copy">{{ .description }}</p>
+                    {{ with .image }}<img src="{{ . }}" alt="{{ $.Params.how_it_works.headline }} Step {{ .number }}" class="h4 w4 center mt3">{{ end }}
+                    </div>
+                </div>
+                {{ end }}
+                </div>
+            {{ end }}
+            </section>
+            <hr class="mw7 center b--black-10">
+        {{ end }}
+
+        {{/* --- PRODUCT & PRICING --- */}}
+        {{ with .Params.product_overview }}
+            <section class="mv4">
+            <h2 class="f3 fw6 tc">{{ .headline }}</h2>
+
+            {{/* Wrapper for product details, image, and shipping note */}}
+            {{/* This div sets the main content width and centers it */}}
+            <div class="tc measure center">
+                <h3 class="f4 fw6 mt0">{{ .name_tagline }}</h3>
+                <p class="f5 lh-copy">{{ .description }}</p>
+
+                {{/* --- ADD PRODUCT IMAGE HERE --- */}}
+                {{ with .product_image }}
+                {{/* Using db center mw-measure mv4 shadow-1 br2 for styling - CHANGED mw6 to mw-measure */}}
+                {{/* mw-measure makes the image width match the text block width */}}
+                <img src="{{ . | absURL }}" alt="{{ $.Params.product_overview.name_tagline | default "GuestStatus Signal Product" }}" class="db center mw-measure mv4 shadow-1 br2">
+                {{ end }}
+                {{/* --- END PRODUCT IMAGE --- */}}
+
+                {{/* Shipping Note */}}
+                <p class="f5 fw6 navy">{{ .shipping_note }}</p>
+            </div>
+
+            {{/* Optional Upgrades Section - Place this div OUTSIDE the .tc .measure .center div above */}}
+            {{/* It was already correctly placed outside in the previous full code */}}
+            {{ with .upgrades }}
+            {{/* This div does *not* have .measure .center so upgrades span wider */}}
+            <div class="mt4 bt b--black-10 pt3">
+                <h4 class="f5 fw6 tc mb3">{{ $.Params.product_overview.upgrades_headline | default "Optional Upgrades" }}</h4>
+
+                {{/* Loop through each upgrade item */}}
+                {{ range . }}
+                {{/* Add flexbox, border, spacing, rounding, hover background, and transition classes */}}
+                <div class="pa3 ba b--light-gray mv2 br2 flex items-center bg-light-gray:hover transition duration-150">
+                    {{/* Check if icon path exists and display image */}}
+                    {{ if .icon }}
+                    {{/* Access .icon and .name from the range item context */}}
+                    {{/* Using h3 w3 mr3 flex-shrink-0 for icon size and spacing */}}
+                    <img src="{{ .icon | absURL }}" alt="{{ .name | default "Upgrade icon" }}" class="h3 w3 mr3 flex-shrink-0">
+                    {{ end }}
+                    {{/* The text content with name and details */}}
+                    {{/* Access .name and .details directly from the range item context */}}
+                    {{/* Using f5 lh-copy flex-grow-1 for text styling and layout */}}
+                    <span class="f5 lh-copy flex-grow-1"><span class="fw6">{{ .name }}</span>: {{ .details }}</span>
+                </div>
+                {{ end }} {{/* End range .upgrades */}}
+
+            </div> {{/* End div for .upgrades */}}
+            {{ end }} {{/* End with .upgrades */}}
+
+            </section> {{/* End section */}}
+        {{ end }} {{/* End with .Params.product_overview */}}
+
+        {{/* --- SOCIAL PROOF --- */}}
+        {{ with .Params.social_proof }}
+            {{/* The main section container with background, padding, and rounding */}}
+            {{/* Keeping bg-lightest-blue as per your provided code */}}
+            <section class="mv4 bg-lightest-blue br2 pa3 pa4-ns">
+
+            {{/* Testimonials Section (now the primary focus) */}}
+            {{ with .testimonials }}
+                {{/* Changed <h3> to <h2> and adjusted classes for margin */}}
+                <h2 class="f3 fw6 tc mb4">{{ $.Params.social_proof.testimonials_headline | default "Testimonials" }}</h2>
+                {{/* Testimonials container - Uses flex-wrap to stack items vertically */}}
+                {{/* overflow-x-auto and flex-nowrap removed */}}
+                <div class="flex flex-wrap justify-center">
+                {{ range . }}
+                    {{/* Each testimonial item - pa3 tc w-100 makes it full width within the container */}}
+                    <div class="pa3 tc w-100 flex-shrink-0">
+                    {{/* Blockquote for the quote with measure and center classes for readability */}}
+                    <blockquote class="f5 lh-copy measure center i">"{{ .quote }}"</blockquote>
+                    {{/* Cite for the author */}}
+                    <cite class="f6 db mt2">– {{ .author }}</cite>
+                    </div>
+                {{ end }}
+                </div>
+            {{ end }}
+
+            {{/* Built with Trust & Privacy Section */}}
+            {{ with .badges }}
+                {{/* Sub-headline for badges - keeps text from front matter */}}
+                <h3 class="f4 fw6 tc mt5">{{ $.Params.social_proof.badges_headline | default "Trust Badges & Privacy Seals" }}</h3> {{/* This header */}}
+                {{/* Container for badges - using flex to align and center */}}
+                <div class="flex justify-center items-center mt3">
+                {{ range . }}
+                    {{/* Each badge item with padding and horizontal margin */}}
+                    <div class="tc mh3">
+                    {{/* Icon rendering - uses h2 w2 by default now */}}
+                    <img src="{{ .src }}" alt="{{ .alt }}" class="{{ .class | default "h2 w2" }} db center">
+                    {{/* Label below the icon */}}
+                    <span class="f7 db mt1">{{ .label }}</span>
+                    </div>
+                {{ end }}
+                </div>
+            {{ end }}
+
+            </section> {{/* End section */}}
+            {{/* Horizontal rule separator below the section */}}
+            <hr class="mw7 center b--black-10">
+        {{ end }} {{/* End with .Params.social_proof */}}
+
+      {{/* --- WHY GUESTSTATUS --- */}}
+        {{ with .Params.why_gueststatus }}
+            <section class="mv4">
+            <h2 class="f3 fw6 tc">{{ .headline }}</h2>
+            {{ with .benefits }}
+            <ul class="list pl0 mt4 measure center">
+                {{ range $index, $element := . }}
+                <li class="flex items-center pa3 {{ if gt $index 0 }}bt b--black-10{{ end }}">
+                    <img src="{{ .icon }}" alt="" class="h2 w2 mr3 flex-shrink-0">
+                    <span class="f5 lh-copy"><b class="db">{{ .title }}:</b> {{ .text }}</span>
+                </li>
+                {{ end }}
+            </ul>
+            {{ end }}
+            </section>
+            <hr class="mw7 center b--black-10">
+        {{ end }}
+
+      {{/* --- FINAL CTA --- */}}
+        {{ with .Params.final_cta }}
+            <section class="mv4 tc bg-washed-blue br2 pa3 pa4-ns">
+            <h2 class="f3 fw6 measure center">{{ .message }}</h2>
+            {{ if and .cta_text .cta_link }}
+                <div class="mv3">
+                <a href="{{ .cta_link }}" class="footer-cta f4">{{ .cta_text }}</a>
+                </div>
+            {{ end }}
+            {{ with .delivery_note }}<p class="f6 mt2 navy fw6">{{ . }}</p>{{ end }}
+            {{ with .scarcity_note }}<p class="f6 mt2 navy fw6">{{ . }}</p>{{ end }}
+            </section>
+        {{ end }}
+
+
+    </div> {{/* End content wrapper */}}
+
+  </div> {{/* End simple outer wrapper */}}
+{{ end }}

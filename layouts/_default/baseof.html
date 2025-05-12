@@ -57,7 +57,15 @@
   {{- $environment := hugo.Environment | default "production" -}}
   <body class="ma0 {{ $.Param "body_classes"  | default "avenir bg-near-white"}} {{ $environment }}">
 
-    {{ block "header" . }}{{ partial "site-header.html" .}}{{ end }}
+    {{/* --- MODIFIED HEADER BLOCK --- */}}
+    {{ block "header" . }}
+      {{/* Only include the standard site header on pages that ARE NOT the homepage */}}
+      {{ if not .IsHome }}
+        {{ partial "site-header.html" .}}
+      {{ end }}
+    {{ end }}
+    {{/* --- END MODIFIED HEADER BLOCK --- */}}
+
     <main class="pb7" role="main">
       {{ block "main" . }}{{ end }}
     </main>

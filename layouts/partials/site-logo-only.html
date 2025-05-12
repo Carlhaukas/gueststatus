@@ -1,0 +1,18 @@
+{{/* layouts/partials/site-logo-only.html - Explicit Context Version */}}
+{{ $Site := .Site }} {{/* Get Site object from passed context */}}
+{{ $Page := .Page }} {{/* Get Page object if needed */}}
+
+<!-- DEBUG logo partial: Site object available? {{ if $Site }}YES{{ else }}NO{{ end }} -->
+<!-- DEBUG logo partial: Site Title = [{{ $Site.Title }}] -->
+<!-- DEBUG logo partial: Site Logo Param = [{{ $Site.Params.site_logo }}] -->
+
+<a href="{{ $Site.Home.RelPermalink }}" class="f3 fw2 hover-white no-underline white-90 dib">
+  {{ $logoPath := $Site.Params.site_logo }}
+  {{ if $logoPath }} {{/* Check if logoPath exists and is not empty */}}
+    <!-- DEBUG logo partial: Logo path found: [{{ $logoPath }}] -->
+    <img src="{{ relURL $logoPath }}" class="w-auto h2 h3-ns" alt="{{ $Site.Title }}" />
+  {{ else }}
+    <!-- DEBUG logo partial: Logo path NOT found or empty. Using Site Title. -->
+    {{ $Site.Title }}
+  {{ end }}
+</a>
