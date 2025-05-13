@@ -109,17 +109,17 @@ why_gueststatus:
       text: "Efficiently schedule cleaning without delay."
     - icon: "/images/privacy_first.svg"
       title: "Privacy Assured"
-      text: "No cameras. No microphones. Just a simple Signal."
+      text: "No cameras. No mics. Just a simple Signal."
     - icon: "/images/plug.svg"
       title: "Simple Setup"
       text: "Just plug into router and let it power up."
 
 final_cta:
-  message: "Take Control of Your Rental Today. GuestStatus Signal is only €49.00—no subscriptions, no monthly fees. Secure your device and your peace of mind now."
+  message: "Take Control of Your Rental Today. GuestStatus Signal is only <span class='f2 b navy dbi'>€49.00</span>—<span class='navy b'>no subscriptions, no monthly fees</span>. Secure your device and your peace of mind now."
   cta_text: "Secure My Signal & Peace of Mind"
   cta_link: "https://buy.stripe.com/bIYaFk9e1cfVaXK144"
   delivery_note: "Pre-Order now for Q4 2025 delivery." # Optional
-  scarcity_note: "748 Left." 
+  scarcity_note: "748 Left."
 
 ---
 <!-- BODY MUST BE EMPTY BELOW THIS LINE -->

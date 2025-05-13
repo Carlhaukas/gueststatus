@@ -218,7 +218,7 @@
                     {{/* Each badge item with padding and horizontal margin */}}
                     <div class="tc mh3">
                     {{/* Icon rendering - uses h2 w2 by default now */}}
-                    <img src="{{ .src }}" alt="{{ .alt }}" class="{{ .class | default "h2 w2" }} db center">
+                    <img src="{{ .src }}" alt="{{ .alt }}" class="{{ .class | default "h2 w2" }}" db center>
                     {{/* Label below the icon */}}
                     <span class="f7 db mt1">{{ .label }}</span>
                     </div>
@@ -249,19 +249,44 @@
             <hr class="mw7 center b--black-10">
         {{ end }}
 
-      {{/* --- FINAL CTA --- */}}
+        {{/* --- FINAL CTA --- */}}
         {{ with .Params.final_cta }}
-            <section class="mv4 tc bg-washed-blue br2 pa3 pa4-ns">
-            <h2 class="f3 fw6 measure center">{{ .message }}</h2>
-            {{ if and .cta_text .cta_link }}
-                <div class="mv3">
-                <a href="{{ .cta_link }}" class="footer-cta f4">{{ .cta_text }}</a>
-                </div>
-            {{ end }}
-            {{ with .delivery_note }}<p class="f6 mt2 navy fw6">{{ . }}</p>{{ end }}
-            {{ with .scarcity_note }}<p class="f6 mt2 navy fw6">{{ . }}</p>{{ end }}
-            </section>
-        {{ end }}
+            {{/* Section container with background, padding, and rounding */}}
+            {{/* Added pb4 for space below content, kept other classes */}}
+            <section class="mt4 mb0 tc bg-washed-blue br2 pa3 pa4-ns pb4">
+
+                {{/* The main message - includes styled spans for price and no fees from front matter */}}
+                {{/* Use safeHTML because the message string contains raw HTML spans */}}
+                <h2 class="f3 fw6 measure center lh-copy mb3">{{ .message | safeHTML }}</h2> {{/* Added mb3 margin below headline */}}
+
+                {{/* Optional Delivery and Scarcity Notes Block */}}
+                {{/* Combined into a single visual block with subtle background, padding, and rounding */}}
+                {{/* mb3 adds margin below this block and above the button */}}
+                {{ if or .delivery_note .scarcity_note }} {{/* Only show this block if either note exists */}}
+                    <div class="pa2 bg-light-gray br2 tc mb3 dib-ns" style="max-width: 300px; display: inline-block;"> {{/* Added pa2, bg-light-gray, br2, tc, mb3, dib-ns, and max-width for potentially narrower badge on large screens*/}}
+                        {{ with .delivery_note }}
+                            {{/* f5, fw6 for boldness, navy for color, mv0 to remove default p margins */}}
+                            <p class="f5 fw6 navy mv0 lh-title">{{ . }}</p> {{/* Added lh-title */}}
+                        {{ end }}
+                        {{ with .scarcity_note }}
+                            {{/* f5, fw6 for boldness, dark-red for urgency color, mv0 for no default p margins */}}
+                            {{/* Display as block db to ensure it's on a new line below delivery note */}}
+                            <p class="f5 fw6 dark-red mv0 db lh-title">{{ . }}</p> {{/* Added db and lh-title */}}
+                        {{ end }}
+                    </div>
+                {{ end }} {{/* End if or .delivery_note .scarcity_note */}}
+
+
+                {{/* CTA Button - Placed below the notes block */}}
+                {{ if and .cta_text .cta_link }}
+                    {{/* mt3 adds space above the button, below the notes block */}}
+                    <div class="mt3">
+                       <a href="{{ .cta_link }}" class="footer-cta f4">{{ .cta_text }}</a>
+                    </div>
+                {{ end }}
+
+            </section> {{/* End section */}}
+        {{ end }} {{/* End with .Params.final_cta */}}
 
 
     </div> {{/* End content wrapper */}}
