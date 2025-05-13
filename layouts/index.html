@@ -263,7 +263,11 @@
                 {{/* Combined into a single visual block with subtle background, padding, and rounding */}}
                 {{/* mb3 adds margin below this block and above the button */}}
                 {{ if or .delivery_note .scarcity_note }} {{/* Only show this block if either note exists */}}
-                    <div class="pa2 bg-light-gray br2 tc mb3 dib-ns" style="max-width: 300px; display: inline-block;"> {{/* Added pa2, bg-light-gray, br2, tc, mb3, dib-ns, and max-width for potentially narrower badge on large screens*/}}
+                    {{/*
+                        Using 'dib-ns' and max-width for the container to center it as a badge on larger screens.
+                        The paragraphs inside use 'db' to ensure they stack vertically.
+                    */}}
+                    <div class="pa2 bg-light-gray br2 tc mb3 dib-ns" style="max-width: 300px; display: inline-block;">
                         {{ with .delivery_note }}
                             {{/* f5, fw6 for boldness, navy for color, mv0 to remove default p margins */}}
                             <p class="f5 fw6 navy mv0 lh-title">{{ . }}</p> {{/* Added lh-title */}}
@@ -271,7 +275,7 @@
                         {{ with .scarcity_note }}
                             {{/* f5, fw6 for boldness, dark-red for urgency color, mv0 for no default p margins */}}
                             {{/* Display as block db to ensure it's on a new line below delivery note */}}
-                            <p class="f5 fw6 dark-red mv0 db lh-title">{{ . }}</p> {{/* Added db and lh-title */}}
+                            <p id="scarcity-count" class="f5 fw6 dark-red mv0 db lh-title">Loading...</p> {{/* ADDED id="scarcity-count" and set initial text */}}
                         {{ end }}
                     </div>
                 {{ end }} {{/* End if or .delivery_note .scarcity_note */}}
@@ -292,4 +296,67 @@
     </div> {{/* End content wrapper */}}
 
   </div> {{/* End simple outer wrapper */}}
+
+  {{/* --- Dynamic Scarcity Script (Fetches from Worker API) --- */}}
+  {{/*
+      This script fetches the current inventory count from your Cloudflare Worker API.
+      It finds the element with id="scarcity-count" and updates its text content.
+  */}}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const scarcityElement = document.getElementById('scarcity-count');
+
+      // Define the endpoint URL for your API Worker.
+      // Based on your webhook worker URL, your API worker URL is likely:
+      const apiUrl = 'https://gueststatus-inventory-api.carl-2a8.workers.dev/api/inventory'; // <-- This should be correct based on your provided webhook URL structure
+
+      if (scarcityElement) {
+        // The initial text is already set in the HTML ("Loading...").
+
+        // Function to format the number back into text (e.g., "745 Left.")
+        function formatNumber(number) {
+          // Ensure we don't show negative numbers visually.
+          const displayCount = Math.max(0, number);
+          return displayCount + ' Left.'; // Assumes the desired format is "NUMBER Left."
+        }
+
+        // Fetch the current count from the API Worker.
+        fetch(apiUrl)
+          .then(response => {
+            if (!response.ok) {
+              // Log the specific error response from the Worker if available
+               return response.text().then(text => {
+                  try {
+                     const errJson = JSON.parse(text);
+                     throw new Error(`API error! status: ${response.status}, details: ${errJson.error || text}`);
+                  } catch (parseErr) {
+                     throw new Error(`API error! status: ${response.status}, raw response: ${text}`);
+                  }
+               });
+            }
+            return response.json();
+          })
+          .then(data => {
+            // Check if the response has a valid number for the count.
+            if (typeof data.count === 'number') {
+              scarcityElement.textContent = formatNumber(data.count);
+            } else {
+              console.error('API response missing or invalid count property:', data);
+              scarcityElement.textContent = 'Count unavailable.'; // Display generic error state.
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching inventory count:', error);
+            scarcityElement.textContent = 'Count unavailable.'; // Display error state on fetch failure.
+          });
+
+        // IMPORTANT: The count is only updated visually on page load (by fetching from the API).
+        // Clicking the button redirects the user to Stripe.
+        // The actual inventory decrement happens server-side via the Stripe webhook received by your Webhook Worker.
+        // There is NO client-side decrementing tied to the button click anymore.
+      }
+    });
+  </script>
+  {{/* --- End Dynamic Scarcity Script --- */}}
+
 {{ end }}

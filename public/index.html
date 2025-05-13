@@ -471,7 +471,8 @@
                 
                 
                  
-                    <div class="pa2 bg-light-gray br2 tc mb3 dib-ns" style="max-width: 300px; display: inline-block;"> 
+                    
+                    <div class="pa2 bg-light-gray br2 tc mb3 dib-ns" style="max-width: 300px; display: inline-block;">
                         
                             
                             <p class="f5 fw6 navy mv0 lh-title">Pre-Order now for Q4 2025 delivery.</p> 
@@ -479,7 +480,7 @@
                         
                             
                             
-                            <p class="f5 fw6 dark-red mv0 db lh-title">748 Left.</p> 
+                            <p id="scarcity-count" class="f5 fw6 dark-red mv0 db lh-title">Loading...</p> 
                         
                     </div>
                  
@@ -500,6 +501,66 @@
     </div> 
 
   </div> 
+
+  
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const scarcityElement = document.getElementById('scarcity-count');
+
+      
+      
+      const apiUrl = 'https://gueststatus-inventory-api.carl-2a8.workers.dev/api/inventory'; 
+
+      if (scarcityElement) {
+        
+
+        
+        function formatNumber(number) {
+          
+          const displayCount = Math.max(0, number);
+          return displayCount + ' Left.'; 
+        }
+
+        
+        fetch(apiUrl)
+          .then(response => {
+            if (!response.ok) {
+              
+               return response.text().then(text => {
+                  try {
+                     const errJson = JSON.parse(text);
+                     throw new Error(`API error! status: ${response.status}, details: ${errJson.error || text}`);
+                  } catch (parseErr) {
+                     throw new Error(`API error! status: ${response.status}, raw response: ${text}`);
+                  }
+               });
+            }
+            return response.json();
+          })
+          .then(data => {
+            
+            if (typeof data.count === 'number') {
+              scarcityElement.textContent = formatNumber(data.count);
+            } else {
+              console.error('API response missing or invalid count property:', data);
+              scarcityElement.textContent = 'Count unavailable.'; 
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching inventory count:', error);
+            scarcityElement.textContent = 'Count unavailable.'; 
+          });
+
+        
+        
+        
+        
+      }
+    });
+  </script>
+  
+
 
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
