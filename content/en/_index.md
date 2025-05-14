@@ -60,7 +60,7 @@ how_it_works:
 product_overview:
   headline: "Product & Pricing Overview"
   name_tagline: "GuestStatus Signal – Your Silent, Smart Manager"
-  description: "Invest once in GuestStatus Signal and enjoy a lifetime of free, reliable alerts. Ensure every booking is executed exactly as planned—all without compromising guest privacy. Only €49.00 and it plugs directly into your router for instantaneous alerts of arrivals and departures."
+  description: "Invest once in GuestStatus Signal and enjoy a lifetime of free, reliable alerts. Ensure every booking is executed exactly as planned—all without compromising guest privacy. Only €49.00 and it plugs directly into your router for instantaneous alerts of arrivals, departures, and number of people."
   product_image: "/images/signal_product_shot3.jpg"
   shipping_note: "Ships Q4 2025"
   upgrades_headline: "Optional Upgrades"
