@@ -53,14 +53,14 @@
               {{ with .image_left_title }}
                 <h3 class="f4 fw6 near-black mb2 tc">{{ . }}</h3>
               {{ end }}
-              <img src="{{ .image_left }}" alt="{{ $.Params.hero.main_headline }} visual 1" class="db center shadow-1 br2">
+              <img src="{{ .image_left }}" alt="{{ $.Params.hero.main_headline }} visual 1" class="db center shadow-1 br2 w-90">
             </div>
-            <div class="w-100 w-40-ns tc ph2">
+            <div class="w-100 w-40-ns tc ph2 mb3 mb0-ns">
                {{/* ADDED TITLE FOR RIGHT IMAGE */}}
               {{ with .image_right_title }}
                  <h3 class="f4 fw6 near-black mb2 tc">{{ . }}</h3>
               {{ end }}
-              <img src="{{ .image_right }}" alt="{{ $.Params.hero.main_headline }} visual 2" class="db center shadow-1 br2">
+              <img src="{{ .image_right }}" alt="{{ $.Params.hero.main_headline }} visual 2" class="db center shadow-1 br2 w-90">
             </div>
           {{ else if .image_left }}
             {{/* If only one image is present, you might want a single title here too */}}
