@@ -97,7 +97,7 @@
             {{ with .icons }}
                 <div class="flex flex-wrap justify-center mt4">
                 {{ range . }}
-                <div class="w-50 w-third-ns pa3 tc">
+                <div class="w-100 w-third-ns pa3 tc"> {{/* w-50 -> w-100 */}}
                     <img src="{{ .src }}" alt="{{ .alt }}" class="h3 w3 db center">
                     <p class="f6 mt2">{{ .label }}</p>
                 </div>
@@ -117,7 +117,8 @@
                 {{ range . }}
                 <div class="w-100 w-third-ns pa3 tc">
                     <div class="bg-white pa3 br2 shadow-1 h-100">
-                    <span class="f-headline lh-solid navy">{{ .number }}</span>
+                    {{/* MODIFIED: f-headline -> f1 (or f2 if you prefer smaller) */}}
+                    <span class="f1 lh-solid navy">{{ .number }}</span>
                     <h3 class="f5 fw6 mt3">{{ .title }}</h3>
                     <p class="f6 lh-copy">{{ .description }}</p>
                     {{ with .image }}<img src="{{ . }}" alt="{{ $.Params.how_it_works.headline }} Step {{ .number }}" class="h4 w4 center mt3">{{ end }}
@@ -162,18 +163,20 @@
 
                 {{/* Loop through each upgrade item */}}
                 {{ range . }}
-                {{/* Add flexbox, border, spacing, rounding, hover background, and transition classes */}}
-                <div class="pa3 ba b--light-gray mv2 br2 flex items-center bg-light-gray:hover transition duration-150">
+                {{/* MODIFIED: flex items-center -> flex flex-column flex-row-ns items-center */}}
+                <div class="pa3 ba b--light-gray mv2 br2 flex flex-column flex-row-ns items-center bg-light-gray:hover transition duration-150">
                     {{/* Check if icon path exists and display image */}}
                     {{ if .icon }}
+                    {{/* MODIFIED: mr3 -> mb2-ns mr3-ns */}}
                     {{/* Access .icon and .name from the range item context */}}
                     {{/* Using h3 w3 mr3 flex-shrink-0 for icon size and spacing */}}
-                    <img src="{{ .icon | absURL }}" alt="{{ .name | default "Upgrade icon" }}" class="h3 w3 mr3 flex-shrink-0">
+                    <img src="{{ .icon | absURL }}" alt="{{ .name | default "Upgrade icon" }}" class="h3 w3 mb2-ns mr3-ns flex-shrink-0">
                     {{ end }}
                     {{/* The text content with name and details */}}
+                    {{/* MODIFIED: Added tc tl-ns */}}
                     {{/* Access .name and .details directly from the range item context */}}
                     {{/* Using f5 lh-copy flex-grow-1 for text styling and layout */}}
-                    <span class="f5 lh-copy flex-grow-1"><span class="fw6">{{ .name }}</span>: {{ .details }}</span>
+                    <span class="f5 lh-copy flex-grow-1 tc tl-ns"><span class="fw6">{{ .name }}</span>: {{ .details }}</span>
                 </div>
                 {{ end }} {{/* End range .upgrades */}}
 
@@ -212,11 +215,13 @@
             {{ with .badges }}
                 {{/* Sub-headline for badges - keeps text from front matter */}}
                 <h3 class="f4 fw6 tc mt5">{{ $.Params.social_proof.badges_headline | default "Trust Badges & Privacy Seals" }}</h3> {{/* This header */}}
+                {{/* MODIFIED: flex -> flex flex-wrap */}}
                 {{/* Container for badges - using flex to align and center */}}
-                <div class="flex justify-center items-center mt3">
+                <div class="flex flex-wrap justify-center items-center mt3"> {{/* ADDED flex-wrap */}}
                 {{ range . }}
+                    {{/* MODIFIED: tc mh3 -> w-100 w-auto-ns tc mv2 mh3-ns */}}
                     {{/* Each badge item with padding and horizontal margin */}}
-                    <div class="tc mh3">
+                    <div class="w-100 w-auto-ns tc mv2 mh3-ns"> {{/* Full width + vert margin on mobile, auto width + horiz margin on desktop */}}
                     {{/* Icon rendering - uses h2 w2 by default now */}}
                     <img src="{{ .src }}" alt="{{ .alt }}" class="{{ .class | default "h2 w2" }}" db center>
                     {{/* Label below the icon */}}
@@ -238,9 +243,12 @@
             {{ with .benefits }}
             <ul class="list pl0 mt4 measure center">
                 {{ range $index, $element := . }}
-                <li class="flex items-center pa3 {{ if gt $index 0 }}bt b--black-10{{ end }}">
-                    <img src="{{ .icon }}" alt="" class="h2 w2 mr3 flex-shrink-0">
-                    <span class="f5 lh-copy"><b class="db">{{ .title }}:</b> {{ .text }}</span>
+                {{/* MODIFIED: flex items-center -> flex flex-column flex-row-ns items-center */}}
+                <li class="flex flex-column flex-row-ns items-center pa3 {{ if gt $index 0 }}bt b--black-10{{ end }}">
+                    {{/* MODIFIED: mr3 -> mb2-ns mr3-ns */}}
+                    <img src="{{ .icon }}" alt="" class="h2 w2 mb2-ns mr3-ns flex-shrink-0">
+                    {{/* MODIFIED: Added tc tl-ns */}}
+                    <span class="f5 lh-copy tc tl-ns"><b class="db">{{ .title }}:</b> {{ .text }}</span>
                 </li>
                 {{ end }}
             </ul>
@@ -251,13 +259,15 @@
 
         {{/* --- FINAL CTA --- */}}
         {{ with .Params.final_cta }}
+            {{/* MODIFIED: bg-washed-blue -> bg-light-blue */}}
             {{/* Section container with background, padding, and rounding */}}
             {{/* Added pb4 for space below content, kept other classes */}}
-            <section class="mt4 mb0 tc bg-washed-blue br2 pa3 pa4-ns pb4">
+            <section class="mt4 mb0 tc bg-lightest-blue br2 pa3 pa4-ns pb4"> {{/* CHANGED background */}}
 
                 {{/* The main message - includes styled spans for price and no fees from front matter */}}
                 {{/* Use safeHTML because the message string contains raw HTML spans */}}
-                <h2 class="f3 fw6 measure center lh-copy mb3">{{ .message | safeHTML }}</h2> {{/* Added mb3 margin below headline */}}
+                {{/* MODIFIED: f3 -> f4 */}}
+                <h2 class="f4 fw6 measure center lh-copy mb3">{{ .message | safeHTML }}</h2> {{/* Added mb3 margin below headline, CHANGED font size */}}
 
                 {{/* Optional Delivery and Scarcity Notes Block */}}
                 {{/* Combined into a single visual block with subtle background, padding, and rounding */}}
@@ -267,15 +277,17 @@
                         Using 'dib-ns' and max-width for the container to center it as a badge on larger screens.
                         The paragraphs inside use 'db' to ensure they stack vertically.
                     */}}
-                    <div class="pa2 bg-light-gray br2 tc mb3 dib-ns" style="max-width: 300px; display: inline-block;">
+                    {{/* pa2 -> pa1, mb3 -> mb2 */}}
+                    <div class="pa1 bg-light-yellow br2 tc mb2 dib-ns" style="max-width: 300px; display: inline-block;">
                         {{ with .delivery_note }}
-                            {{/* f5, fw6 for boldness, navy for color, mv0 to remove default p margins */}}
-                            <p class="f5 fw6 navy mv0 lh-title">{{ . }}</p> {{/* Added lh-title */}}
+                            {{/* f5 -> f6 */}}
+                            <p class="f6 fw6 navy mv0 lh-title">{{ . }}</p> {{/* Added lh-title, CHANGED font size */}}
                         {{ end }}
                         {{ with .scarcity_note }}
+                            {{/* f5 -> f6 */}}
                             {{/* f5, fw6 for boldness, dark-red for urgency color, mv0 for no default p margins */}}
                             {{/* Display as block db to ensure it's on a new line below delivery note */}}
-                            <p id="scarcity-count" class="f5 fw6 dark-red mv0 db lh-title">Loading...</p> {{/* ADDED id="scarcity-count" and set initial text */}}
+                            <p id="scarcity-count" class="f6 fw6 dark-red mv0 db lh-title">Loading...</p> {{/* ADDED id="scarcity-count" and set initial text, CHANGED font size */}}
                         {{ end }}
                     </div>
                 {{ end }} {{/* End if or .delivery_note .scarcity_note */}}

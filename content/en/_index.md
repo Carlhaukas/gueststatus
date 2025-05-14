@@ -11,14 +11,17 @@ featured_image: '/images/gueststatusentry.jpg' # Can still be used for SEO/Shari
 hero:
   main_headline: "Know Who’s Coming, How Many, and When They Leave"
   secondary_tagline: "No Cameras, No Mics, No Hassle"
-  subheadline: "GuestStatus Signal plugs right into your router and sends free, real-time alerts—so you can verify bookings, schedule cleaning, and act immediately when unexpected guests or departures occur."
+  # --- MODIFIED FOR CONCISENESS ON MOBILE ---
+  # Shortened subheadline to be more scannable while keeping key benefits/actions
+  subheadline: "Your silent, smart GuestStatus Signal plugs into your router and sends free, real-time alerts. Verify number of guests, schedule cleaning, and act swiftly when unexpected acts occur."
+  # ------------------------------------
   image_left: "/images/signal_product_shot3.jpg"
   image_left_title: Easy Setup, Just Plug In # Title for the left image
   image_right: "/images/context_mobile_alert5.png"
   image_right_title: "Total Control, Real-Time" # Title for the right image
   cta_text: "Get My Signal"
   cta_link: "https://buy.stripe.com/bIYaFk9e1cfVaXK144"
-  subtext: "Only €49.00 – Free Tracked Shipping (Pre-Order: Ships Q4 2025)"
+  subtext: "Only €49.00 – No Monthly Fees – Free Tracked Shipping (Pre-Order: Ships Q4 2025)"
   # Optional: Add a background image specific for this hero if you don't want the featured_image
   # background_image: "/images/hero-background.jpg"
 
@@ -57,7 +60,7 @@ how_it_works:
 product_overview:
   headline: "Product & Pricing Overview"
   name_tagline: "GuestStatus Signal – Your Silent, Smart Manager"
-  description: "Invest once in GuestStatus Signal and enjoy a lifetime of free, reliable alerts. Ensure every booking is executed exactly as planned—all without compromising guest privacy. Only €49.00 and it plugs directly into your router for instantaneous verification of odds, arrivals, and departures."
+  description: "Invest once in GuestStatus Signal and enjoy a lifetime of free, reliable alerts. Ensure every booking is executed exactly as planned—all without compromising guest privacy. Only €49.00 and it plugs directly into your router for instantaneous alerts of arrivals and departures."
   product_image: "/images/signal_product_shot3.jpg"
   shipping_note: "Ships Q4 2025."
   upgrades_headline: "Optional Upgrades"
@@ -116,7 +119,7 @@ why_gueststatus:
 
 final_cta:
   message: "Take Control of Your Rental Today. GuestStatus Signal is only <span class='f2 b navy dbi'>€49.00</span>—<span class='navy b'>no subscriptions, no monthly fees</span>. Secure your device and your peace of mind now."
-  cta_text: "Secure My Signal & Peace of Mind"
+  cta_text: "Secure My Signal"
   cta_link: "https://buy.stripe.com/bIYaFk9e1cfVaXK144"
   delivery_note: "Pre-Order now for Q4 2025 delivery." # Optional
   scarcity_note: "748 Left."
