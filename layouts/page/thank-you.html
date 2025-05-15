@@ -1,0 +1,152 @@
+{{/* 
+  This layout file defines blocks that will be inserted into your theme's layouts/_default/baseof.html.
+  DO NOT define "baseof" itself in this file.
+  This layout renders content from the `thank_you_page_data` parameter in the markdown file,
+  with improved visual structure and styling.
+*/}}
+
+{{ define "head" }}
+  {{/* 
+     This block overrides the 'head' block defined in your baseof.html.
+     Include the standard head additions partial from your theme,
+     as indicated by your baseof.html's {{ block "head" . }}{{ partial "head-additions.html" . }}{{ end }} structure.
+     The Global Site Tag (gtag.js) is already included DIRECTLY in the <head> of baseof.html,
+     so it will be present automatically. We do NOT need to include it again here.
+  */}}
+  {{ partial "head-additions.html" . }} {{/* CORRECT partial name found in your baseof.html */}}
+
+  <!-- Event snippet for GuestStatus Purchase (3) conversion page -->
+  <script>
+    gtag('event', 'conversion', {
+        'send_to': 'AW-16972476848/MXr4CNadkcgaELDjjZ0_',
+        'value': 1.0,
+        'currency': 'NOK',
+        'transaction_id': ''
+    });
+  </script>
+  <!-- End Event snippet -->
+
+  {{/* Optional: Add any page-specific CSS or inline styles needed ONLY for this page. */}}
+  {{/* No specific styles needed here if using theme/Tachyons classes */}}
+
+{{ end }}
+
+{{ define "header" }}
+  {{/* Your existing header block - renders the GuestStatus logo etc. */}}
+  {{ partial "page-header.html" . }} 
+{{ end }}
+
+{{ define "main" }}
+  {{/* 
+     Main block structure, pulling data from `.Params.thank_you_page_data`.
+     Applying more spacing and clear sectioning.
+  */}}
+  <div class="flex-l mt2 mw8 center">
+    <div class="center cf pv5 ph3 ph4-ns mw7"> {{/* Container for centering and padding */}}
+
+      {{/* --- Check if thank_you_page_data exists and loop through it --- */}}
+      {{ with .Params.thank_you_page_data }} {{/* Context within this block IS the thank_you_page_data object */}}
+
+        {{/* --- Confirmation Section --- */}}
+        <section class="mb5"> {{/* Added margin-bottom for spacing */}}
+          {{ with .confirmation_headline }} {{/* Using 'with' just to check if the headline exists */}}
+          <header class="tc mb4"> {{/* Center the header and add margin bottom */}}
+              <h1 class="f1 lh-title">{{ . }}</h1> {{/* '.' here IS the headline string value */}}
+          </header>
+          {{ end }}
+
+          {{ with .order_status_message }} {{/* Using 'with' just to check if the message exists */}}
+            <p class="f4 lh-copy measure center mb3">{{ . }}</p> {{/* Order status message */}}
+          {{ end }}
+
+          {{ with .value_reinforcement }} {{/* Using 'with' just to check if the message exists */}}
+            <p class="f5 lh-copy measure center mt3">{{ . }}</p> {{/* Value reinforcement message */}}
+          {{ end }}
+        </section>
+        
+
+        {{/* --- Product Image (Place high up for visual confirmation) --- */}}
+        {{ with .product_image }} {{/* Using 'with' just to check if the image path exists */}}
+            {{/* Using styling classes from your index page for the image */}}
+            {{/* Added mv5 for more vertical space around image */}}
+            <div class="tc mv5"> {{/* Center the image container */}}
+                <img src="{{ . | absURL }}" alt="{{ $.Params.thank_you_page_data.image_alt | default "Product image" }}" class="db center mw-measure shadow-1 br2"> {{/* '.' here IS the image path string value */}}
+            </div>
+        {{ end }}
+
+
+        {{/* --- Delivery Information Section --- */}}
+        {{ if .delivery_headline }} {{/* Using 'if' to check if the headline exists to render the section */}}
+          {{/* Added background, padding, and margin for visual distinction */}}
+          <section class="mv5 bg-washed-yellow br2 pa4 pa5-ns"> {{/* Styled section box */}}
+            <h2 class="f3 fw6 tc mb3">{{ .delivery_headline }}</h2> {{/* Delivery headline with margin bottom */}}
+
+            {{ with .delivery_date }} {{/* Using 'with' just to check if the date exists */}}
+               <p class="f4 fw6 tc mb3">{{ . }}</p> {{/* Delivery date with margin bottom */}}
+            {{ end }}
+
+            {{ with .delivery_reassurance }} {{/* Using 'with' just to check if the message exists */}}
+              <p class="f5 lh-copy measure center mb3">{{ . }}</p> {{/* '.' here IS the reassurance string value */}}
+            {{ end }}
+
+            {{ with .next_steps_email }} {{/* Using 'with' just to check if the email instruction exists */}}
+               <p class="f5 lh-copy measure center">{{ . }}</p> {{/* '.' here IS the email instruction string value */}}
+            {{ end }}
+          </section>
+        {{ end }} {{/* End if delivery_headline */}}
+
+
+        {{/* --- Immediate Value Section (QR Code) --- */}}
+        {{ if .qr_code_headline }} {{/* Using 'if' to check if the headline exists to render the section */}}
+            <section class="mv5 bg-light-gray br2 pa4 pa5-ns tc"> {{/* Styled section box like how it works, added text-align center */}}
+              <h2 class="f3 fw6 mb3">{{ .qr_code_headline }}</h2> {{/* QR Code headline with margin bottom */}}
+
+              {{ with .qr_code_description }} {{/* Using 'with' just to check if the description exists */}}
+                 {{/* Use safeHTML because the description contains <strong> tags */}}
+                 <p class="f5 lh-copy measure center mb4">{{ . | safeHTML }}</p> {{/* QR Code description with margin bottom */}}
+              {{ end }}
+
+              {{ if and .qr_code_cta_text .qr_code_cta_link }} {{/* Using 'if' to check if both CTA text and link exist */}}
+                  {{/* Styling similar to the final CTA button in your index page */}}
+                  {{/* Access CTA text/link directly from thank_you_page_data context (.) */}}
+                  <a href="{{ .qr_code_cta_link | relURL }}" class="footer-cta f4">{{ .qr_code_cta_text }}</a> {{/* QR Code CTA button */}}
+              {{ end }}
+            </section>
+        {{ end }} {{/* End if qr_code_headline */}}
+        
+
+        {{/* --- Support Section --- */}}
+        {{ if .support_headline }} {{/* Using 'if' to check if the headline exists to render the section */}}
+          {{/* Added top border and padding for separation */}}
+          <section class="mv5 pt4 bt b--black-10 tc"> {{/* Styled section */}}
+            <h2 class="f3 fw6 mb3">{{ .support_headline }}</h2> {{/* Support headline */}}
+
+            {{ with .support_text }} {{/* Using 'with' just to check if the text exists */}}
+               <p class="f5 lh-copy measure center mb3">{{ . }}</p> {{/* Support text */}}
+            {{ end }}
+
+            {{ with .support_email_address }} {{/* Using 'with' just to check if the email exists */}}
+               <p class="f5 fw6 measure center"><a href="mailto:{{ . }}" class="link blue dim">{{ . }}</a></p> {{/* Support email as link */}}
+            {{ end }}
+          </section>
+        {{ end }} {{/* End if support_headline */}}
+
+
+        {{/* --- Closing --- */}}
+        {{ with .closing_message }} {{/* Using 'with' just to check if the message exists */}}
+           {{/* Added top border and padding for separation */}}
+           <section class="mv5 pt4 bt b--black-10 tc"> {{/* Styled section */}}
+              <p class="f5 lh-copy measure center">{{ . }}</p> {{/* Closing message */}}
+           </section>
+        {{ end }} {{/* End with closing_message */}}
+
+      {{ end }} {{/* End with .Params.thank_you_page_data */}}
+
+    </div> {{/* Closing div for center cf pv5 ph3 ph4-ns mw7 */}}
+  </div> {{/* Closing div for flex-l mt2 mw8 center */}}
+{{ end }}
+
+{{/* 
+  You might also have 'footer' or other blocks defined in your baseof.html
+  You can define them here too if needed, or they will use the defaults from baseof.
+*/}}
