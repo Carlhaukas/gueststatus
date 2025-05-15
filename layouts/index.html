@@ -7,7 +7,8 @@
       {{ $logo := $.Site.Params.site_logo }}
       {{ $siteTitle := $.Site.Title }}
 
-      <section class="hero-section cover bg-center relative" {{ with $heroBg }}style="background-image: url('{{ . | absURL }}');"{{ end }}>
+      {{/* ADDED ID HERE: id="hero" */}}
+      <section id="hero" class="hero-section cover bg-center relative" {{ with $heroBg }}style="background-image: url('{{ . | absURL }}');"{{ end }}>
           {{/* Overlay Div - Removed absolute--fill, adjust padding/height */}}
           <div class="{{ $.Site.Params.cover_dimming_class | default "bg-black-70" }} min-vh-75 w-100 pa3 ph4-ns flex flex-column"> {{/* Reduced min height slightly */}}
 
@@ -84,7 +85,8 @@
 
       {{/* --- GUEST CYCLE ADVANTAGE --- */}}
         {{ with .Params.guest_cycle }}
-            <section class="mv4">
+            {{/* ADDED ID HERE: id="guest-cycle" */}}
+            <section id="guest-cycle" class="mv4">
             <h2 class="f3 fw6 tc">{{ .headline }}</h2>
             {{ with .copy }}<p class="f4 lh-copy tc measure center">{{ . }}</p>{{ end }}
             {{ with .points }}
@@ -110,7 +112,8 @@
 
       {{/* --- HOW IT WORKS --- */}}
         {{ with .Params.how_it_works }}
-            <section class="mv4 bg-light-gray br2 pa3 pa4-ns">
+            {{/* ADDED ID HERE: id="how-it-works" */}}
+            <section id="how-it-works" class="mv4 bg-light-gray br2 pa3 pa4-ns">
             <h2 class="f3 fw6 tc">{{ .headline }}</h2>
             {{ with .steps }}
                 <div class="flex flex-wrap justify-center">
@@ -133,7 +136,8 @@
 
         {{/* --- PRODUCT & PRICING --- */}}
         {{ with .Params.product_overview }}
-            <section class="mv4">
+            {{/* ADDED ID HERE: id="product-pricing" */}}
+            <section id="product-pricing" class="mv4">
             <h2 class="f3 fw6 tc">{{ .headline }}</h2>
 
             {{/* Wrapper for product details, image, and shipping note */}}
@@ -190,7 +194,8 @@
         {{ with .Params.social_proof }}
             {{/* The main section container with background, padding, and rounding */}}
             {{/* Keeping bg-lightest-blue as per your provided code */}}
-            <section class="mv4 bg-lightest-blue br2 pa3 pa4-ns">
+            {{/* ADDED ID HERE: id="testimonials" */}}
+            <section id="testimonials" class="mv4 bg-lightest-blue br2 pa3 pa4-ns">
 
             {{/* Testimonials Section (now the primary focus) */}}
             {{ with .testimonials }}
@@ -238,7 +243,8 @@
 
       {{/* --- WHY GUESTSTATUS --- */}}
         {{ with .Params.why_gueststatus }}
-            <section class="mv4">
+            {{/* ADDED ID HERE: id="why-gueststatus" */}}
+            <section id="why-gueststatus" class="mv4">
             <h2 class="f3 fw6 tc">{{ .headline }}</h2>
             {{ with .benefits }}
             <ul class="list pl0 mt4 measure center">
@@ -262,7 +268,8 @@
             {{/* MODIFIED: bg-washed-blue -> bg-light-blue */}}
             {{/* Section container with background, padding, and rounding */}}
             {{/* Added pb4 for space below content, kept other classes */}}
-            <section class="mt4 mb0 tc bg-lightest-blue br2 pa3 pa4-ns pb4"> {{/* CHANGED background */}}
+            {{/* ADDED ID HERE: id="final-cta" */}}
+            <section id="final-cta" class="mt4 mb0 tc bg-lightest-blue br2 pa3 pa4-ns pb4"> {{/* CHANGED background */}}
 
                 {{/* The main message - includes styled spans for price and no fees from front matter */}}
                 {{/* Use safeHTML because the message string contains raw HTML spans */}}
