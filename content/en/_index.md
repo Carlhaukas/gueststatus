@@ -20,7 +20,7 @@ hero:
   image_right: "/images/context_mobile_alert5.png"
   image_right_title: "Total Control, Real-Time" # Title for the right image
   cta_text: "Get My Signal"
-  cta_link: "https://www.gueststatus.com/thank-you/"
+  cta_link: "https://buy.stripe.com/bIYaFk9e1cfVaXK144"
   subtext: "Only €49.00 – No Monthly Fees – Free Tracked Shipping (Pre-Order: Ships Q4 2025)"
   # Optional: Add a background image specific for this hero if you don't want the featured_image
   # background_image: "/images/hero-background.jpg"
