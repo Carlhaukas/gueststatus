@@ -95,24 +95,7 @@
           </section>
         {{ end }} {{/* End if delivery_headline */}}
 
-
-        {{/* --- Immediate Value Section (QR Code) --- */}}
-        {{ if .qr_code_headline }} {{/* Using 'if' to check if the headline exists to render the section */}}
-            <section class="mv5 bg-light-gray br2 pa4 pa5-ns tc"> {{/* Styled section box like how it works, added text-align center */}}
-              <h2 class="f3 fw6 mb3">{{ .qr_code_headline }}</h2> {{/* QR Code headline with margin bottom */}}
-
-              {{ with .qr_code_description }} {{/* Using 'with' just to check if the description exists */}}
-                 {{/* Use safeHTML because the description contains <strong> tags */}}
-                 <p class="f5 lh-copy measure center mb4">{{ . | safeHTML }}</p> {{/* QR Code description with margin bottom */}}
-              {{ end }}
-
-              {{ if and .qr_code_cta_text .qr_code_cta_link }} {{/* Using 'if' to check if both CTA text and link exist */}}
-                  {{/* Styling similar to the final CTA button in your index page */}}
-                  {{/* Access CTA text/link directly from thank_you_page_data context (.) */}}
-                  <a href="{{ .qr_code_cta_link | relURL }}" class="footer-cta f4">{{ .qr_code_cta_text }}</a> {{/* QR Code CTA button */}}
-              {{ end }}
-            </section>
-        {{ end }} {{/* End if qr_code_headline */}}
+        
         
 
         {{/* --- Support Section --- */}}
