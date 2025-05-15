@@ -2,32 +2,21 @@
   This layout file defines blocks that will be inserted into your theme's layouts/_default/baseof.html.
   DO NOT define "baseof" itself in this file.
   This layout renders content from the `thank_you_page_data` parameter in the markdown file,
-  with improved visual structure and styling.
+  AND forces the Google Ads event snippet into the main content for debugging.
 */}}
 
 {{ define "head" }}
   {{/* 
      This block overrides the 'head' block defined in your baseof.html.
-     Include the standard head additions partial from your theme,
-     as indicated by your baseof.html's {{ block "head" . }}{{ partial "head-additions.html" . }}{{ end }} structure.
-     The Global Site Tag (gtag.js) is already included DIRECTLY in the <head> of baseof.html,
-     so it will be present automatically. We do NOT need to include it again here.
+     Include the standard head additions partial from your theme.
+     The Google Ads Event Snippet is **MOVED to the 'main' block** for debugging why it's not rendering here.
+     The Global Site Tag (gtag.js) is already included DIRECTLY in the <head> of baseof.html.
   */}}
   {{ partial "head-additions.html" . }} {{/* CORRECT partial name found in your baseof.html */}}
 
-  <!-- Event snippet for GuestStatus Purchase (3) conversion page -->
-  <script>
-    gtag('event', 'conversion', {
-        'send_to': 'AW-16972476848/MXr4CNadkcgaELDjjZ0_',
-        'value': 1.0,
-        'currency': 'NOK',
-        'transaction_id': ''
-    });
-  </script>
-  <!-- End Event snippet -->
+  {{/* REMOVED: Event snippet was here - moved to main block for debugging */}}
 
-  {{/* Optional: Add any page-specific CSS or inline styles needed ONLY for this page. */}}
-  {{/* No specific styles needed here if using theme/Tachyons classes */}}
+  {{/* No page-specific CSS needed */}}
 
 {{ end }}
 
@@ -38,11 +27,29 @@
 
 {{ define "main" }}
   {{/* 
-     Main block structure, pulling data from `.Params.thank_you_page_data`.
-     Applying more spacing and clear sectioning.
+     Your main block structure, pulling data from `.Params.thank_you_page_data`.
+     TEMPORARILY includes the Google Ads Conversion Event Snippet HERE for debugging.
   */}}
   <div class="flex-l mt2 mw8 center">
     <div class="center cf pv5 ph3 ph4-ns mw7"> {{/* Container for centering and padding */}}
+
+      {{/* --- TEMPORARILY PLACE GOOGLE ADS EVENT SNIPPET HERE --- */}}
+      {{/* This will render the script tag directly in the page's body */}}
+      {{/* We use safeHTML to ensure the script tag is not escaped */}}
+      {{ with .Params.thank_you_page_data }} {{/* Use any data field to ensure this only renders if data is present */}}
+      {{/* Note: This will cause the script to run when the body content is processed */}}
+      {{/* The 'send_to' value below MUST match the one from your Google Ads conversion action setup */}}
+      <script>
+        gtag('event', 'conversion', {
+            'send_to': 'AW-16972476848/MXr4CNadkcgaELDjjZ0_', // Your unique Google Ads Conversion ID/Label - KEEP THIS EXACTLY AS GOOGLE PROVIDED
+            'value': 1.0,       // <<< THIS NEEDS TO BE REPLACED WITH DYNAMIC PURCHASE VALUE IF POSSIBLE
+            'currency': 'NOK',  // <<< CONFIRM/SET THIS TO YOUR PURCHASE CURRENCY, DYNAMICALLY IF POSSIBLE
+            'transaction_id': ''// <<< HIGHLY RECOMMENDED: REPLACE WITH UNIQUE ORDER ID DYNAMICALLY FROM STRIPE DATA
+        });
+      </script>
+      {{ end }}
+      {{/* --- END TEMPORARY PLACEMENT --- */}}
+
 
       {{/* --- Check if thank_you_page_data exists and loop through it --- */}}
       {{ with .Params.thank_you_page_data }} {{/* Context within this block IS the thank_you_page_data object */}}
@@ -82,7 +89,7 @@
             <h2 class="f3 fw6 tc mb3">{{ .delivery_headline }}</h2> {{/* Delivery headline with margin bottom */}}
 
             {{ with .delivery_date }} {{/* Using 'with' just to check if the date exists */}}
-               <p class="f4 fw6 tc mb3">{{ . }}</p> {{/* Delivery date with margin bottom */}}
+               <p class="f4 fw6 tc mb3">{{ . }}</p> {{/* '.' here IS the date string value */}}
             {{ end }}
 
             {{ with .delivery_reassurance }} {{/* Using 'with' just to check if the message exists */}}
@@ -96,8 +103,6 @@
         {{ end }} {{/* End if delivery_headline */}}
 
         
-        
-
         {{/* --- Support Section --- */}}
         {{ if .support_headline }} {{/* Using 'if' to check if the headline exists to render the section */}}
           {{/* Added top border and padding for separation */}}
